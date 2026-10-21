@@ -16,7 +16,7 @@ sup{font-size:.65em}
 .nav-toggle,.site-header nav a{font-size:var(--text-ui)}
 .small-note,.disclosure,.benchmark-protocol,.controlled-protocol,.controlled-results-note,
 .training-efficiency-summary-note,.representation-protocol,#representation-explanation,
-.resource-list .coming-soon,.resource-citation-column .coming-soon,footer p{font-size:var(--text-caption);line-height:1.65}
+.resource-list :is(.coming-soon,.resource-link),.resource-citation-column .coming-soon,footer p{font-size:var(--text-caption);line-height:1.65}
 .section-topline{align-items:baseline;flex-wrap:wrap;gap:10px 24px}
 .section-topline>.small-note{max-width:100%;text-wrap:pretty}
 .method-details-header{align-items:center;flex-direction:row;gap:4px 16px}
@@ -65,7 +65,7 @@ sup{font-size:.65em}
 .resource-list p,.resource-citation-column p{font-size:var(--text-detail);line-height:1.7}
 .resource-list>div{padding:22px 0;gap:6px 14px}
 .resource-list h3,.resource-citation-column h3{font-size:20px;line-height:1.4}
-.resource-list .coming-soon,.resource-citation-column .coming-soon{padding:5px 12px}
+.resource-list :is(.coming-soon,.resource-link),.resource-citation-column .coming-soon{padding:5px 12px}
 .resource-citation-column{padding-top:22px}
 .resource-citation-column .resource-citation{gap:8px 14px}
 .resource-emails a{min-width:0;overflow-wrap:anywhere}
@@ -119,7 +119,7 @@ sup{font-size:.65em}
  .temporal-grid{grid-template-columns:100px repeat(4,minmax(0,1fr));gap:10px;min-width:820px}
  .resource-list>div{grid-template-columns:26px minmax(0,1fr) auto;gap:6px 10px}
  .resource-list h3,.resource-citation-column h3{font-size:18px}
- .resource-list .coming-soon,.resource-citation-column .coming-soon{padding:4px 9px;grid-row:1;align-self:center}
+ .resource-list :is(.coming-soon,.resource-link),.resource-citation-column .coming-soon{padding:4px 9px;grid-row:1;align-self:center}
  .resource-list p,.resource-citation-column p{grid-column:2/-1}
  .resource-citation-column .resource-citation{grid-template-columns:26px minmax(0,1fr) auto;gap:8px 10px}
  :is(#showcase,.media-viewer-showcase) .showcase-case-intro{gap:8px 16px;flex-wrap:wrap;margin-bottom:14px}

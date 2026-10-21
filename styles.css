@@ -551,7 +551,7 @@ body .iq-comparison-chart :is(.iq-axis-label,.iq-axis-title,.iq-absolute-gain,.i
 .resource-list .resource-symbol{grid-column:1;grid-row:1/3}
 .resource-list h3{grid-column:2;grid-row:1;font-size:17px}
 .resource-list p{display:block;grid-column:2;grid-row:2;font-size:12px;line-height:1.6}
-.resource-list .coming-soon{grid-column:3;grid-row:1/3;font-size:10px;padding:3px 10px;white-space:nowrap}
+.resource-list :is(.coming-soon,.resource-link){grid-column:3;grid-row:1/3;font-size:10px;padding:3px 10px;white-space:nowrap}
 @media(max-width:700px){.resource-list{grid-template-columns:1fr;column-gap:0}.resource-list>div{padding:15px 0;gap:4px 10px}.resource-list h3{font-size:16px}}
 
 .resource-layout{display:grid;grid-template-columns:minmax(0,1.8fr) minmax(0,1fr);gap:40px;margin-top:24px;align-items:stretch}
@@ -595,3 +595,7 @@ body .iq-comparison-chart :is(.iq-axis-label,.iq-axis-title,.iq-absolute-gain,.i
 @media(max-width:600px){.training-efficiency-summary{margin-top:16px;padding-top:12px}.training-efficiency-summary strong{font-size:26px}}
 
 .method-layout .method-figure-media{padding:4px 0}
+
+.resource-link{display:inline-flex;align-items:center;border:1px solid var(--border);border-radius:20px;color:var(--primary);line-height:1.65;transition:border-color .2s,background .2s}
+.resource-link:hover{border-color:var(--primary);background:var(--surface-hover)}
+.resource-list h3 a:hover{color:var(--primary)}
