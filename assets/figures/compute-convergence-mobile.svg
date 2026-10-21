@@ -1,0 +1,462 @@
+<svg xmlns="http://www.w3.org/2000/svg" font-weight="500" id="chart-46a87200-c360-4b25-bd8d-2381b851823c" class="pygal-chart" viewBox="0 0 640 410" width="640" height="410"><defs><style type="text/css">/*
+ * This file is part of pygal
+ *
+ * A python svg graph plotting library
+ * Copyright © 2012 Kozea
+
+ * This library is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with pygal. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+/*
+ * Font-sizes from config, override with care
+ */
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  {
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  font-family: Arial, sans-serif;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .title {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .legends .legend text {
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis text.major {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .text-overlay text.value {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .text-overlay text.label {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c text.no_data {
+  font-family: Arial, sans-serif;
+  font-size: 64px;
+}
+
+/*
+ * This file is part of pygal
+ *
+ * A python svg graph plotting library
+ * Copyright © 2012 Kozea
+
+ * This library is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with pygal. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+/*
+ * Styles from config
+ */
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c {
+  background-color: #0c111b;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c path,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c rect,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c circle {
+  -webkit-transition: 150ms;
+  -moz-transition: 150ms;
+  transition: 150ms;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .graph &gt; .background {
+  fill: #0c111b;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .plot &gt; .background {
+  fill: #0c111b;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .graph {
+  fill: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c text.no_data {
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .title {
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .legends .legend text {
+  fill: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .legends .legend:hover text {
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .line {
+  stroke: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .guide.line {
+  stroke: #27364a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .major.line {
+  stroke: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis text.major {
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y .guides:hover .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .line-graph .axis.x .guides:hover .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .stackedline-graph .axis.x .guides:hover .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .xy-graph .axis.x .guides:hover .guide.line {
+  stroke: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .guides:hover text {
+  fill: #d1d9e5;
+}
+
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .reactive {
+  fill-opacity: 1;
+  stroke-opacity: .8;
+  stroke-width: 2.6;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .ci {
+    stroke: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .reactive.active,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .active .reactive {
+  fill-opacity: 1;
+  stroke-opacity: .9;
+  stroke-width: 4;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .ci .reactive.active {
+  stroke-width: 1.5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series text {
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip rect {
+  fill: #0c111b;
+  stroke: #d1d9e5;
+  -webkit-transition: opacity 150ms;
+  -moz-transition: opacity 150ms;
+  transition: opacity 150ms;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .label {
+  fill: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .label {
+  fill: #b6c2d2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .legend {
+  font-size: .8em;
+  fill: #27364a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .x_label {
+  font-size: .6em;
+  fill: #d1d9e5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .xlink {
+  font-size: .5em;
+  text-decoration: underline;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip .value {
+  font-size: 1.5em;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .bound {
+  font-size: .5em;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .max-value {
+  font-size: .75em;
+  fill: #27364a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .map-element {
+  fill: #0c111b;
+  stroke: #27364a !important;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .map-element .reactive {
+  fill-opacity: inherit;
+  stroke-opacity: inherit;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .color-0, #chart-46a87200-c360-4b25-bd8d-2381b851823c .color-0 a:visited {
+  stroke: #e6a46a;
+  fill: #e6a46a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .color-1, #chart-46a87200-c360-4b25-bd8d-2381b851823c .color-1 a:visited {
+  stroke: #86b5ff;
+  fill: #86b5ff;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .color-2, #chart-46a87200-c360-4b25-bd8d-2381b851823c .color-2 a:visited {
+  stroke: #e6a46a;
+  fill: #e6a46a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .color-3, #chart-46a87200-c360-4b25-bd8d-2381b851823c .color-3 a:visited {
+  stroke: #86b5ff;
+  fill: #86b5ff;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .color-4, #chart-46a87200-c360-4b25-bd8d-2381b851823c .color-4 a:visited {
+  stroke: #a7b4c7;
+  fill: #a7b4c7;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  .text-overlay .color-0 text {
+  fill: black;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  .text-overlay .color-1 text {
+  fill: black;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  .text-overlay .color-2 text {
+  fill: black;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  .text-overlay .color-3 text {
+  fill: black;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  .text-overlay .color-4 text {
+  fill: black;
+}
+
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-2 {
+
+  stroke-width: 1.8;
+
+  stroke-dasharray: 7, 5;
+
+}
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-3 {
+
+  stroke-width: 1.8;
+
+  stroke-dasharray: 7, 5;
+
+}
+
+/*
+ * This file is part of pygal
+ *
+ * A python svg graph plotting library
+ * Copyright © 2012 Kozea
+
+ * This library is free software: you can redistribute it and/or modify it under
+ * the terms of the GNU Lesser General Public License as published by the Free
+ * Software Foundation, either version 3 of the License, or (at your option) any
+ * later version.
+ *
+ * This library is distributed in the hope that it will be useful, but WITHOUT
+ * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ * FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public License for more
+ * details.
+ *
+ * You should have received a copy of the GNU Lesser General Public License
+ * along with pygal. If not, see &lt;http://www.gnu.org/licenses/&gt;.
+*/
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c text.no_data {
+  text-anchor: middle;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .guide.line {
+  fill: none;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .centered {
+  text-anchor: middle;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .title {
+  text-anchor: middle;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .legends .legend text {
+  fill-opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.x text {
+  text-anchor: middle;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.x:not(.web) text[transform] {
+  text-anchor: start;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.x:not(.web) text[transform].backwards {
+  text-anchor: end;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y text {
+  text-anchor: end;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y text[transform].backwards {
+  text-anchor: start;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y2 text {
+  text-anchor: start;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y2 text[transform].backwards {
+  text-anchor: end;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .guide.line {
+  stroke-dasharray: 0;
+  stroke: #27364a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .major.guide.line {
+  stroke-dasharray: 0;
+  stroke: #27364a;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .horizontal .axis.y .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .horizontal .axis.y2 .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .vertical .axis.x .guide.line {
+  opacity: 0;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .horizontal .axis.always_show .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .vertical .axis.always_show .guide.line {
+  opacity: 1 !important;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y .guides:hover .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.y2 .guides:hover .guide.line,
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis.x .guides:hover .guide.line {
+  opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .axis .guides:hover text {
+  opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .nofill {
+  fill: none;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .subtle-fill {
+  fill-opacity: .2;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .dot {
+  stroke-width: 1px;
+  fill-opacity: 1;
+  stroke-opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .dot.active {
+  stroke-width: 5px;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .dot.negative {
+  fill: transparent;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c  text, #chart-46a87200-c360-4b25-bd8d-2381b851823c  tspan {
+  stroke: none !important;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series text.active {
+  opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip rect {
+  fill-opacity: .95;
+  stroke-width: .5;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .tooltip text {
+  fill-opacity: 1;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .showable {
+  visibility: hidden;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .showable.shown {
+  visibility: visible;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .gauge-background {
+  fill: rgba(229, 229, 229, 1);
+  stroke: none;
+}
+
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .bg-lines {
+  stroke: #0c111b;
+  stroke-width: 2px;
+}
+</style><style>.series.serie-2 .line,.series.serie-3 .line{stroke-opacity:.45;stroke-width:1.8}</style><linearGradient id="sample-depth-0" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#f9d8b8" /><stop offset="100%" stop-color="#d98a47" /></linearGradient><linearGradient id="sample-depth-1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#c3dcff" /><stop offset="100%" stop-color="#4d93ff" /></linearGradient><style>#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-0 .line{stroke:url(#sample-depth-0);stroke-opacity:1}
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-2 .line{stroke:url(#sample-depth-0);stroke-opacity:.45}
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-1 .line{stroke:url(#sample-depth-1);stroke-opacity:1}
+#chart-46a87200-c360-4b25-bd8d-2381b851823c .series.serie-3 .line{stroke:url(#sample-depth-1);stroke-opacity:.45}</style></defs><title>Pygal</title><g class="graph xy-graph vertical"><rect x="0" y="0" width="640" height="410" class="background" /><g transform="translate(99, 18)" class="plot"><rect x="0" y="0" width="523.0" height="294.0" class="background" /><g class="axis y always_show"><path d="M0.000000 294.000000 h523.000000" class="line" /><g class="guides"><path d="M0.000000 269.500000 h523.000000" class="guide line" /><text x="-5" y="274.40000000000003" class="">25.00</text><title>25.00</title></g><g class="guides"><path d="M0.000000 194.115385 h523.000000" class="guide line" /><text x="-5" y="199.01538461538465" class="">27.00</text><title>27.00</title></g><g class="guides"><path d="M0.000000 118.730769 h523.000000" class="guide line" /><text x="-5" y="123.6307692307692" class="">29.00</text><title>29.00</title></g><g class="guides"><path d="M0.000000 43.346154 h523.000000" class="guide line" /><text x="-5" y="48.24615384615378" class="">31.00</text><title>31.00</title></g></g><g class="axis x always_show"><path d="M0.000000 0.000000 v294.000000" class="line" /><g class="guides"><path d="M34.004579 0.000000 v294.000000" class="guide line" /><text x="34.00457875457875" y="311.0" class="">0.5</text><title>0.5</title></g><g class="guides"><path d="M153.739011 0.000000 v294.000000" class="guide line" /><text x="153.73901098901098" y="311.0" class="">1.0</text><title>1.0</title></g><g class="guides"><path d="M273.473443 0.000000 v294.000000" class="guide line" /><text x="273.47344322344327" y="311.0" class="">1.5</text><title>1.5</title></g><g class="guides"><path d="M393.207875 0.000000 v294.000000" class="guide line" /><text x="393.2078754578755" y="311.0" class="">2.0</text><title>2.0</title></g><g class="guides"><path d="M512.942308 0.000000 v294.000000" class="guide line" /><text x="512.9423076923077" y="311.0" class="">2.5</text><title>2.5</title></g></g><g class="series serie-0 color-0"><path d="M37.081236 255.968462 L98.486780 251.181538 159.892325 215.373846 221.297869 162.152308 282.703414 236.368462 344.108959 160.531538 405.514503 173.233846" class="line reactive nofill" /></g><g class="series serie-1 color-1"><path d="M55.584353 194.944615 L126.241457 148.470000 196.898560 80.887692 267.555664 67.808462 338.212767 97.736154 408.869871 67.016923 479.526974 47.492308" class="line reactive nofill" /></g><g class="series serie-2 color-2"><path d="M37.081236 261.077253 L38.932659 260.232099 40.784083 259.393072 42.635506 258.560129 44.486930 257.733224 46.338353 256.912314 48.189776 256.097356 50.041200 255.288306 51.892623 254.485121 53.744047 253.687760 55.595470 252.896180 57.446894 252.110338 59.298317 251.330194 61.149741 250.555705 63.001164 249.786832 64.852588 249.023533 66.704011 248.265768 68.555434 247.513497 70.406858 246.766679 72.258281 246.025276 74.109705 245.289248 75.961128 244.558557 77.812552 243.833162 79.663975 243.113027 81.515399 242.398113 83.366822 241.688382 85.218246 240.983796 87.069669 240.284319 88.921092 239.589912 90.772516 238.900541 92.623939 238.216167 94.475363 237.536754 96.326786 236.862268 98.178210 236.192671 100.029633 235.527929 101.881057 234.868006 103.732480 234.212868 105.583904 233.562479 107.435327 232.916806 109.286750 232.275814 111.138174 231.639469 112.989597 231.007737 114.841021 230.380586 116.692444 229.757981 118.543868 229.139890 120.395291 228.526280 122.246715 227.917119 124.098138 227.312374 125.949562 226.712014 127.800985 226.116006 129.652408 225.524319 131.503832 224.936922 133.355255 224.353783 135.206679 223.774873 137.058102 223.200159 138.909526 222.629612 140.760949 222.063201 142.612373 221.500897 144.463796 220.942669 146.315220 220.388489 148.166643 219.838326 150.018066 219.292152 151.869490 218.749938 153.720913 218.211655 155.572337 217.677274 157.423760 217.146768 159.275184 216.620107 161.126607 216.097265 162.978031 215.578214 164.829454 215.062925 166.680878 214.551373 168.532301 214.043529 170.383724 213.539367 172.235148 213.038860 174.086571 212.541982 175.937995 212.048706 177.789418 211.559006 179.640842 211.072857 181.492265 210.590232 183.343689 210.111106 185.195112 209.635454 187.046536 209.163250 188.897959 208.694470 190.749382 208.229088 192.600806 207.767081 194.452229 207.308423 196.303653 206.853090 198.155076 206.401058 200.006500 205.952303 201.857923 205.506802 203.709347 205.064531 205.560770 204.625466 207.412194 204.189585 209.263617 203.756863 211.115040 203.327279 212.966464 202.900809 214.817887 202.477431 216.669311 202.057123 218.520734 201.639862 220.372158 201.225625 222.223581 200.814392 224.075005 200.406141 225.926428 200.000849 227.777852 199.598496 229.629275 199.199059 231.480698 198.802519 233.332122 198.408853 235.183545 198.018042 237.034969 197.630064 238.886392 197.244899 240.737816 196.862526 242.589239 196.482925 244.440663 196.106076 246.292086 195.731960 248.143510 195.360556 249.994933 194.991844 251.846356 194.625806 253.697780 194.262421 255.549203 193.901671 257.400627 193.543536 259.252050 193.187998 261.103474 192.835038 262.954897 192.484636 264.806321 192.136775 266.657744 191.791435 268.509168 191.448600 270.360591 191.108250 272.212014 190.770367 274.063438 190.434934 275.914861 190.101933 277.766285 189.771346 279.617708 189.443156 281.469132 189.117346 283.320555 188.793897 285.171979 188.472793 287.023402 188.154018 288.874826 187.837553 290.726249 187.523383 292.577672 187.211491 294.429096 186.901859 296.280519 186.594473 298.131943 186.289315 299.983366 185.986370 301.834790 185.685620 303.686213 185.387052 305.537637 185.090647 307.389060 184.796392 309.240484 184.504270 311.091907 184.214266 312.943330 183.926365 314.794754 183.640550 316.646177 183.356808 318.497601 183.075123 320.349024 182.795480 322.200448 182.517865 324.051871 182.242262 325.903295 181.968658 327.754718 181.697037 329.606142 181.427385 331.457565 181.159688 333.308988 180.893932 335.160412 180.630103 337.011835 180.368186 338.863259 180.108169 340.714682 179.850036 342.566106 179.593775 344.417529 179.339372 346.268953 179.086813 348.120376 178.836085 349.971800 178.587175 351.823223 178.340070 353.674646 178.094756 355.526070 177.851220 357.377493 177.609450 359.228917 177.369433 361.080340 177.131157 362.931764 176.894607 364.783187 176.659773 366.634611 176.426641 368.486034 176.195199 370.337458 175.965435 372.188881 175.737337 374.040305 175.510893 375.891728 175.286091 377.743151 175.062918 379.594575 174.841363 381.445998 174.621414 383.297422 174.403061 385.148845 174.186290 387.000269 173.971090 388.851692 173.757451 390.703116 173.545361 392.554539 173.334809 394.405963 173.125783 396.257386 172.918272 398.108809 172.712266 399.960233 172.507753 401.811656 172.304723 403.663080 172.103165 405.514503 171.903068" class="line reactive nofill" /></g><g class="series serie-3 color-3"><path d="M55.584353 197.816320 L57.714718 195.276955 59.845083 192.783300 61.975448 190.334532 64.105813 187.929844 66.236178 185.568441 68.366543 183.249545 70.496908 180.972391 72.627273 178.736227 74.757638 176.540315 76.888003 174.383931 79.018368 172.266363 81.148733 170.186912 83.279098 168.144893 85.409462 166.139632 87.539827 164.170466 89.670192 162.236747 91.800557 160.337835 93.930922 158.473106 96.061287 156.641942 98.191652 154.843741 100.322017 153.077908 102.452382 151.343862 104.582747 149.641029 106.713112 147.968848 108.843477 146.326768 110.973842 144.714246 113.104207 143.130750 115.234571 141.575758 117.364936 140.048757 119.495301 138.549243 121.625666 137.076722 123.756031 135.630706 125.886396 134.210720 128.016761 132.816294 130.147126 131.446968 132.277491 130.102292 134.407856 128.781820 136.538221 127.485118 138.668586 126.211757 140.798951 124.961317 142.929315 123.733387 145.059680 122.527559 147.190045 121.343437 149.320410 120.180630 151.450775 119.038755 153.581140 117.917433 155.711505 116.816297 157.841870 115.734981 159.972235 114.673130 162.102600 113.630392 164.232965 112.606425 166.363330 111.600890 168.493695 110.613454 170.624060 109.643794 172.754424 108.691587 174.884789 107.756522 177.015154 106.838287 179.145519 105.936582 181.275884 105.051108 183.406249 104.181573 185.536614 103.327690 187.666979 102.489177 189.797344 101.665758 191.927709 100.857162 194.058074 100.063120 196.188439 99.283372 198.318804 98.517659 200.449169 97.765730 202.579533 97.027336 204.709898 96.302234 206.840263 95.590184 208.970628 94.890951 211.100993 94.204305 213.231358 93.530019 215.361723 92.867871 217.492088 92.217641 219.622453 91.579116 221.752818 90.952085 223.883183 90.336341 226.013548 89.731681 228.143913 89.137904 230.274278 88.554817 232.404642 87.982225 234.535007 87.419940 236.665372 86.867777 238.795737 86.325552 240.926102 85.793089 243.056467 85.270210 245.186832 84.756743 247.317197 84.252518 249.447562 83.757371 251.577927 83.271136 253.708292 82.793653 255.838657 82.324766 257.969022 81.864319 260.099387 81.412160 262.229751 80.968140 264.360116 80.532113 266.490481 80.103935 268.620846 79.683464 270.751211 79.270562 272.881576 78.865092 275.011941 78.466921 277.142306 78.075917 279.272671 77.691952 281.403036 77.314898 283.533401 76.944632 285.663766 76.581030 287.794131 76.223974 289.924496 75.873345 292.054860 75.529027 294.185225 75.190907 296.315590 74.858874 298.445955 74.532817 300.576320 74.212630 302.706685 73.898206 304.837050 73.589442 306.967415 73.286236 309.097780 72.988488 311.228145 72.696099 313.358510 72.408974 315.488875 72.127017 317.619240 71.850136 319.749605 71.578238 321.879969 71.311235 324.010334 71.049038 326.140699 70.791561 328.271064 70.538718 330.401429 70.290427 332.531794 70.046605 334.662159 69.807172 336.792524 69.572050 338.922889 69.341159 341.053254 69.114425 343.183619 68.891772 345.313984 68.673127 347.444349 68.458417 349.574714 68.247573 351.705078 68.040523 353.835443 67.837201 355.965808 67.637539 358.096173 67.441471 360.226538 67.248932 362.356903 67.059859 364.487268 66.874189 366.617633 66.691862 368.747998 66.512817 370.878363 66.336994 373.008728 66.164336 375.139093 65.994787 377.269458 65.828289 379.399823 65.664789 381.530187 65.504231 383.660552 65.346564 385.790917 65.191735 387.921282 65.039692 390.051647 64.890387 392.182012 64.743769 394.312377 64.599791 396.442742 64.458404 398.573107 64.319562 400.703472 64.183219 402.833837 64.049331 404.964202 63.917853 407.094567 63.788741 409.224932 63.661954 411.355296 63.537448 413.485661 63.415184 415.616026 63.295121 417.746391 63.177219 419.876756 63.061439 422.007121 62.947744 424.137486 62.836095 426.267851 62.726455 428.398216 62.618790 430.528581 62.513062 432.658946 62.409238 434.789311 62.307282 436.919676 62.207162 439.050041 62.108844 441.180405 62.012295 443.310770 61.917485 445.441135 61.824381 447.571500 61.732953 449.701865 61.643171 451.832230 61.555005 453.962595 61.468426 456.092960 61.383406 458.223325 61.299916 460.353690 61.217929 462.484055 61.137417 464.614420 61.058355 466.744785 60.980717 468.875150 60.904475 471.005514 60.829606 473.135879 60.756085 475.266244 60.683887 477.396609 60.612989 479.526974 60.543367" class="line reactive nofill" /></g><g class="series serie-4 color-4" /></g><g class="titles"><text x="360.5" y="365.0" class="title">Estimated training FLOPs (×10<tspan baseline-shift="super" font-size="70%">20</tspan>)</text><text x="0" y="192.0" class="title" transform="rotate(-90 0.000000 165.000000)">Physics-IQ ↑</text></g><g transform="translate(99, 18)" class="plot overlay"><g class="series serie-0 color-0"><g class="dots"><desc class="label">Teacher forcing · 5,000 steps · IQ 25.359</desc><circle cx="37.08123569903157" cy="255.96846153846153" r="4" class="dot reactive tooltip-trigger" style="fill:#f9d8b8;stroke:#f9d8b8" /><desc class="value">0.5: 25.36</desc><desc class="x top">37.08123569903157</desc><desc class="y top">255.96846153846153</desc></g><g class="dots"><desc class="label">Teacher forcing · 7,500 steps · IQ 25.486</desc><circle cx="98.48678028847412" cy="251.18153846153848" r="4" class="dot reactive tooltip-trigger" style="fill:#f4cba5;stroke:#f4cba5" /><desc class="value">0.8: 25.49</desc><desc class="x top">98.48678028847412</desc><desc class="y top">251.18153846153848</desc></g><g class="dots"><desc class="label">Teacher forcing · 10,000 steps · IQ 26.436</desc><circle cx="159.89232487791662" cy="215.3738461538462" r="4" class="dot reactive tooltip-trigger" style="fill:#eebe92;stroke:#eebe92" /><desc class="value">1.0: 26.44</desc><desc class="x top">159.89232487791662</desc><desc class="y top">215.3738461538462</desc></g><g class="dots"><desc class="label">Teacher forcing · 12,500 steps · IQ 27.848</desc><circle cx="221.2978694673592" cy="162.15230769230772" r="4" class="dot reactive tooltip-trigger" style="fill:#e9b180;stroke:#e9b180" /><desc class="value">1.3: 27.85</desc><desc class="x top">221.2978694673592</desc><desc class="y top">162.15230769230772</desc></g><g class="dots"><desc class="label">Teacher forcing · 15,000 steps · IQ 25.879</desc><circle cx="282.70341405680176" cy="236.36846153846153" r="4" class="dot reactive tooltip-trigger" style="fill:#e4a46d;stroke:#e4a46d" /><desc class="value">1.5: 25.88</desc><desc class="x left top">282.70341405680176</desc><desc class="y left top">236.36846153846153</desc></g><g class="dots"><desc class="label">Teacher forcing · 17,500 steps · IQ 27.891</desc><circle cx="344.10895864624433" cy="160.53153846153853" r="4" class="dot reactive tooltip-trigger" style="fill:#de975a;stroke:#de975a" /><desc class="value">1.8: 27.89</desc><desc class="x left top">344.10895864624433</desc><desc class="y left top">160.53153846153853</desc></g><g class="dots"><desc class="label">Teacher forcing · 20,000 steps · IQ 27.554</desc><circle cx="405.5145032356868" cy="173.23384615384623" r="4" class="dot reactive tooltip-trigger" style="fill:#d98a47;stroke:#d98a47" /><desc class="value">2.1: 27.55</desc><desc class="x left top">405.5145032356868</desc><desc class="y left top">173.23384615384623</desc></g></g><g class="series serie-1 color-1"><g class="dots"><desc class="label">+ FCP · 5,000 steps · IQ 26.978</desc><circle cx="55.58435343616038" cy="194.94461538461536" r="4" class="dot reactive tooltip-trigger" style="fill:#c3dcff;stroke:#c3dcff" /><desc class="value">0.6: 26.98</desc><desc class="x top">55.58435343616038</desc><desc class="y top">194.94461538461536</desc></g><g class="dots"><desc class="label">+ FCP · 7,500 steps · IQ 28.211</desc><circle cx="126.24145689416733" cy="148.47000000000006" r="4" class="dot reactive tooltip-trigger" style="fill:#afd0ff;stroke:#afd0ff" /><desc class="value">0.9: 28.21</desc><desc class="x top">126.24145689416733</desc><desc class="y top">148.47000000000006</desc></g><g class="dots"><desc class="label">+ FCP · 10,000 steps · IQ 30.004</desc><circle cx="196.89856035217426" cy="80.88769230769222" r="4" class="dot reactive tooltip-trigger" style="fill:#9cc4ff;stroke:#9cc4ff" /><desc class="value">1.2: 30.00</desc><desc class="x ">196.89856035217426</desc><desc class="y ">80.88769230769222</desc></g><g class="dots"><desc class="label">+ FCP · 12,500 steps · IQ 30.351</desc><circle cx="267.55566381018116" cy="67.80846153846153" r="4" class="dot reactive tooltip-trigger" style="fill:#88b8ff;stroke:#88b8ff" /><desc class="value">1.5: 30.35</desc><desc class="x left">267.55566381018116</desc><desc class="y left">67.80846153846153</desc></g><g class="dots"><desc class="label">+ FCP · 15,000 steps · IQ 29.557</desc><circle cx="338.2127672681881" cy="97.73615384615388" r="4" class="dot reactive tooltip-trigger" style="fill:#74abff;stroke:#74abff" /><desc class="value">1.8: 29.56</desc><desc class="x left">338.2127672681881</desc><desc class="y left">97.73615384615388</desc></g><g class="dots"><desc class="label">+ FCP · 17,500 steps · IQ 30.372</desc><circle cx="408.8698707261951" cy="67.01692307692304" r="4" class="dot reactive tooltip-trigger" style="fill:#619fff;stroke:#619fff" /><desc class="value">2.1: 30.37</desc><desc class="x left">408.8698707261951</desc><desc class="y left">67.01692307692304</desc></g><g class="dots"><desc class="label">+ FCP · 20,000 steps · IQ 30.890</desc><circle cx="479.52697418420195" cy="47.492307692307634" r="4" class="dot reactive tooltip-trigger" style="fill:#4d93ff;stroke:#4d93ff" /><desc class="value">2.4: 30.89</desc><desc class="x left">479.52697418420195</desc><desc class="y left">47.492307692307634</desc></g></g><g class="series serie-2 color-2" /><g class="series serie-3 color-3" /><g class="series serie-4 color-4" /></g><g transform="translate(99, 18)" class="plot text-overlay"><g class="series serie-0 color-0" /><g class="series serie-1 color-1" /><g class="series serie-2 color-2" /><g class="series serie-3 color-3" /><g class="series serie-4 color-4" /></g><g transform="translate(99, 18)" class="plot tooltip-overlay"><g transform="translate(0 0)" style="opacity: 0" class="tooltip"><rect rx="0" ry="0" width="0" height="0" class="tooltip-box" /><g class="text" /></g></g><g transform="translate(111, 389)" class="legends"><g id="activate-serie-0" class="legend reactive activate-serie"><rect x="0.0" y="1.5" width="12" height="12" class="color-0 reactive" /><text x="24.0" y="12.0">Teacher forcing</text></g><g id="activate-serie-1" class="legend reactive activate-serie"><rect x="174.33333333333334" y="1.5" width="12" height="12" class="color-1 reactive" /><text x="198.33333333333334" y="12.0">+ FCP</text></g><g id="activate-serie-4" class="legend reactive activate-serie"><line x1="348.6666666666667" x2="380.6666666666667" y1="7.5" y2="7.5" style="stroke:#a7b4c7;stroke-width:2;stroke-dasharray:4,3;fill:none" /><text x="392.6666666666667" y="12.0">Fit</text></g></g></g></svg>

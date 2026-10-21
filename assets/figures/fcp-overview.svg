@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" class="method-diagram" viewBox="44 4 1188 504" role="img" aria-labelledby="fcp-title fcp-description">
+  <title id="fcp-title">Future Chunk Prediction architecture</title>
+  <desc id="fcp-description">Web drawing based on the paper overview. Clean historical chunks and the current chunk enter the autoregressive Transformer. The current input f_t has a solid left-half and dashed right-half border to indicate use as both a clean latent and a noisy latent. Intermediate hidden state h_t conditions three independent Transformer predictors. Each predictor denoises its own noisy future latent to predict f_t+1, f_t+2, or f_t+3. The predictors do not pass information to one another.</desc>
+  <defs>
+    <marker id="fcp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#9fc6ed"/></marker>
+    <marker id="fcp-feature-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#9fc6ed"/></marker>
+    <marker id="fcp-main-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#b1bdcb"/></marker>
+  </defs>
+  <style>
+    .fcp-label{font:500 16px Arial,sans-serif;letter-spacing:1.6px;fill:#c3c6cc}
+    .fcp-label.fcp-future-heading{fill:#9fc6ed}
+    .fcp-block-label{font:500 22px Arial,sans-serif;fill:#f1eee7}
+    .fcp-math{font:italic 28px Georgia,serif;fill:#f1eee7;text-anchor:middle}
+    .fcp-latent-math{fill:#23364d}
+    .fcp-sub{font-size:17px}
+    .fcp-note{font:500 13px Arial,sans-serif;fill:#c3c6cc}
+    .fcp-route{fill:none;stroke:#9fc6ed;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .fcp-feature-route{fill:none;stroke:#9fc6ed;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .fcp-main-route{fill:none;stroke:#b1bdcb;stroke-width:2.6;marker-end:url(#fcp-main-arrow)}
+    .fcp-legend .fcp-note{font-size:18px}
+    .fcp-legend .fcp-label{font-size:14px;letter-spacing:1.4px}
+  </style>
+  <rect width="1240" height="540" fill="#10151c"/>
+  <text x="238" y="26" text-anchor="middle" class="fcp-label">AUTOREGRESSIVE BACKBONE</text>
+  <text x="884.5" y="26" text-anchor="middle" class="fcp-label fcp-future-heading">PARALLEL FUTURE PREDICTORS</text>
+
+<rect x="64" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="93" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="64" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="93" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="64" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="93" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="154" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="183" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="154" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="183" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="154" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="183" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="244" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="273" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="244" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="273" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="244" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="273" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="334" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="363" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t</tspan></text>
+<rect x="334" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="363" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t</tspan></text>
+<g class="fcp-current-input" aria-label="Current chunk f_t: clean and noisy latent">
+  <rect x="334" y="450" width="58" height="46" rx="5" fill="#d6dce4"/><path d="M363 450H387A5 5 0 0 1 392 455V491A5 5 0 0 1 387 496H363Z" fill="#a9bfd9"/>
+  <path d="M363 496 H339 A5 5 0 0 1 334 491 V455 A5 5 0 0 1 339 450 H363" fill="none" stroke="#436b95" stroke-width="3.2"/>
+  <path d="M363 450 H387 A5 5 0 0 1 392 455 V491 A5 5 0 0 1 387 496 H363" fill="none" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+</g>
+<text x="363" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t</tspan></text>
+<rect x="68" y="126" width="350" height="74" rx="9" fill="#222b36" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="63" y="133" width="350" height="74" rx="9" fill="#293440" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="58" y="140" width="350" height="74" rx="9" fill="#303b48" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<text x="233.0" y="183.0" text-anchor="middle" class="fcp-block-label">Transformer blocks</text>
+<rect x="68" y="322" width="350" height="74" rx="9" fill="#222b36" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="63" y="329" width="350" height="74" rx="9" fill="#293440" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="58" y="336" width="350" height="74" rx="9" fill="#303b48" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<text x="233.0" y="379.0" text-anchor="middle" class="fcp-block-label">Transformer blocks</text>
+<rect x="326" y="237" width="74" height="62" rx="8" fill="none" stroke="#bddbc9" stroke-width="2.2" stroke-dasharray="5 4"/>
+
+<rect x="598" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="627" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+1</tspan></text>
+<rect x="598" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="627" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+1</tspan></text>
+<rect x="552" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="547" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="627" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="627" dy="25">blocks</tspan></text>
+<rect x="853" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="882" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+2</tspan></text>
+<rect x="853" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="882" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+2</tspan></text>
+<rect x="807" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="802" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="882" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="882" dy="25">blocks</tspan></text>
+<rect x="1108" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="1137" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+3</tspan></text>
+<rect x="1108" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="1137" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+3</tspan></text>
+<rect x="1062" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="1057" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="1137" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="1137" dy="25">blocks</tspan></text>
+  <!-- Vertical lanes follow each latent center; endpoints touch exposed module edges. -->
+  <g class="fcp-main-connections" aria-label="Aligned autoregressive backbone connections">
+    <path d="M93 450V410" class="fcp-main-route"/>
+    <path d="M93 322V291" class="fcp-main-route"/>
+    <path d="M93 245V214" class="fcp-main-route"/>
+    <path d="M93 126V92" class="fcp-main-route"/>
+    <path d="M183 450V410" class="fcp-main-route"/>
+    <path d="M183 322V291" class="fcp-main-route"/>
+    <path d="M183 245V214" class="fcp-main-route"/>
+    <path d="M183 126V92" class="fcp-main-route"/>
+    <path d="M273 450V410" class="fcp-main-route"/>
+    <path d="M273 322V291" class="fcp-main-route"/>
+    <path d="M273 245V214" class="fcp-main-route"/>
+    <path d="M273 126V92" class="fcp-main-route"/>
+    <path d="M363 450V410" class="fcp-main-route"/>
+    <path d="M363 322V291" class="fcp-main-route"/>
+    <path d="M363 245V214" class="fcp-main-route"/>
+    <path d="M363 126V92" class="fcp-main-route"/>
+  </g>
+  <g class="fcp-future-connections" aria-label="Parallel future predictor connections">
+    <path d="M400 268H451Q459 268 459 276V309Q459 317 467 317H1015" class="fcp-feature-route"/>
+    <path d="M627 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M627 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M505 317V185Q505 177 513 177H547" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="505" cy="317" r="3" fill="#9fc6ed"/>
+    <path d="M882 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M882 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M760 317V185Q760 177 768 177H802" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="760" cy="317" r="3" fill="#9fc6ed"/>
+    <path d="M1137 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M1137 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M1015 317V185Q1015 177 1023 177H1057" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="1015" cy="317" r="3" fill="#9fc6ed"/>
+  </g>
+  <g class="fcp-legend">
+<rect x="478" y="378" width="729" height="111" rx="9" fill="#181f29" stroke="#333f50"/>
+  <text x="501" y="401" class="fcp-label">NOTATION</text>
+  <rect x="501" y="412" width="34" height="23" rx="4" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+  <text x="551" y="429" class="fcp-note">Clean latent</text>
+  <rect x="501" y="450" width="34" height="23" rx="4" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+  <text x="551" y="467" class="fcp-note">Noisy latent</text>
+  <rect x="874" y="412" width="34" height="23" rx="4" fill="#30453c" stroke="#a8cbb6"/>
+  <text x="924" y="429" class="fcp-note">Hidden state</text>
+  <rect x="874" y="450" width="34" height="23" rx="4" fill="#2d4f70" stroke="#9fc6ed"/>
+  <text x="924" y="467" class="fcp-note">Unshared DiT blocks</text>
+  </g>
+</svg>

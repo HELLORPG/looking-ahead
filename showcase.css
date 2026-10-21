@@ -1,0 +1,61 @@
+:is(#showcase,.media-viewer-showcase){padding-top:36px;padding-bottom:36px}
+:is(#showcase,.media-viewer-showcase) h2{font-size:36px;letter-spacing:-1.2px}
+:is(#showcase,.media-viewer-showcase) .section-topline{margin-bottom:14px}
+:is(#showcase,.media-viewer-showcase) .showcase-viewer{max-width:960px;margin:22px auto 0}
+:is(#showcase,.media-viewer-showcase) .showcase-case-count,:is(#showcase,.media-viewer-showcase) .showcase-page-count{font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
+:is(#showcase,.media-viewer-showcase) .showcase-pair{background:var(--surface);border-radius:5px;overflow:hidden}
+:is(#showcase,.media-viewer-showcase) .showcase-labels{display:grid;grid-template-columns:1fr 1fr;font-size:12px}
+:is(#showcase,.media-viewer-showcase) .showcase-labels span{padding:7px 12px}
+:is(#showcase,.media-viewer-showcase) .showcase-labels span+span{color:var(--primary);border-left:2px solid var(--bg)}
+:is(#showcase,.media-viewer-showcase) .showcase-video{width:100%;aspect-ratio:32/9;object-fit:contain;background:var(--bg)}
+:is(#showcase,.media-viewer-showcase) .showcase-controls{display:flex;gap:10px;align-items:center;margin-top:10px}
+:is(#showcase,.media-viewer-showcase) .showcase-controls[hidden]{display:none}
+:is(#showcase,.media-viewer-showcase) .showcase-controls button,:is(#showcase,.media-viewer-showcase) .showcase-page-button{background:transparent;border:1px solid var(--border);border-radius:5px;min-height:34px;padding:3px 11px;font-size:12px}
+:is(#showcase,.media-viewer-showcase) .showcase-play{min-width:60px}
+:is(#showcase,.media-viewer-showcase) .showcase-controls input{min-width:30px;flex:1;margin:0;accent-color:var(--primary);height:26px}
+:is(#showcase,.media-viewer-showcase) .showcase-time{font-size:11px;min-width:61px;text-align:right;color:var(--muted);font-variant-numeric:tabular-nums}
+:is(#showcase,.media-viewer-showcase) .showcase-browser{display:grid;grid-template-columns:32px minmax(0,1fr) 32px;gap:12px;align-items:center;margin-top:18px}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnails{position:relative;display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:calc((100% - 50px)/6);gap:10px;min-width:0;overflow-x:auto;overflow-y:hidden;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;padding:2px 0}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail{scroll-snap-align:start;padding:0;position:relative;background:var(--surface);border:1px solid var(--border);border-radius:4px;overflow:hidden;min-width:0}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail img{width:100%;height:auto;aspect-ratio:16/9;object-fit:contain}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail span{position:absolute;left:4px;bottom:4px;padding:0 5px;background:var(--bg);border-radius:3px;color:var(--muted);font-size:11px}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail[aria-pressed=true]{border-color:var(--primary);box-shadow:0 0 0 1px var(--primary)}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail[aria-pressed=true] span{color:var(--primary)}
+:is(#showcase,.media-viewer-showcase) .showcase-page-button{height:44px;padding:0;font-size:24px;line-height:1}
+:is(#showcase,.media-viewer-showcase) button:disabled{opacity:.3;cursor:default}
+:is(#showcase,.media-viewer-showcase) .showcase-page-count{text-align:center;margin-top:7px}
+:is(#showcase,.media-viewer-showcase) .showcase-error{font-size:13px;color:var(--muted);margin-top:10px}
+:is(#showcase,.media-viewer-showcase) .showcase-error[hidden]{display:none}
+@media(max-width:600px){
+  :is(#showcase,.media-viewer-showcase) h2{font-size:30px}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnails{grid-auto-columns:calc((100% - 16px)/3);gap:8px}
+  :is(#showcase,.media-viewer-showcase) .showcase-browser{gap:8px}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnail{min-height:44px}
+  :is(#showcase,.media-viewer-showcase) .showcase-case-count{white-space:nowrap}
+  :is(#showcase,.media-viewer-showcase) .showcase-labels span{font-size:11px;padding:7px 9px}
+  :is(#showcase,.media-viewer-showcase) .showcase-controls{gap:7px}
+  :is(#showcase,.media-viewer-showcase) .showcase-controls button{min-height:44px}
+  :is(#showcase,.media-viewer-showcase) .showcase-controls input{height:44px}
+}
+
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnails::-webkit-scrollbar{display:none}
+:is(#showcase,.media-viewer-showcase) .showcase-thumbnail-spacer{pointer-events:none}
+
+/* Keep the gallery beside the comparison without increasing its height. */
+@media(min-width:901px){
+  :is(#showcase,.media-viewer-showcase) .showcase-viewer{max-width:none;display:grid;grid-template-columns:minmax(0,4fr) minmax(0,1fr);gap:22px;align-items:stretch}
+  :is(#showcase,.media-viewer-showcase) .showcase-main{min-width:0}
+  :is(#showcase,.media-viewer-showcase) .showcase-sidebar{position:relative;min-width:0;min-height:0}
+  :is(#showcase,.media-viewer-showcase) .showcase-browser{position:absolute;inset:0;display:block;margin:0}
+  :is(#showcase,.media-viewer-showcase) .showcase-page-button,:is(#showcase,.media-viewer-showcase) .showcase-page-count{display:none}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnails{height:100%;grid-auto-flow:row;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-columns:auto;grid-auto-rows:max-content;align-content:start;gap:10px;overflow-x:hidden;overflow-y:auto;overscroll-behavior-y:contain;scroll-snap-type:y proximity;padding:2px 5px 2px 2px;scrollbar-width:thin;scrollbar-color:var(--border) transparent}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnails::-webkit-scrollbar{display:block;width:4px}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnails::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+  :is(#showcase,.media-viewer-showcase) .showcase-thumbnail-spacer{display:none}
+}
+
+:is(#showcase,.media-viewer-showcase) .showcase-observation{font-size:13px;font-weight:500;line-height:1.5;color:var(--muted);min-height:3em;margin-bottom:10px;max-width:none;min-width:0;flex:1}
+@media(max-width:600px){:is(#showcase,.media-viewer-showcase) .showcase-observation{min-height:4.5em}}
+
+:is(#showcase,.media-viewer-showcase) .showcase-case-intro{display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+:is(#showcase,.media-viewer-showcase) .showcase-case-intro .showcase-case-count{flex-shrink:0;white-space:nowrap}

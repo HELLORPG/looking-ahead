@@ -1,0 +1,714 @@
+{
+  "spatial_protocol": "Matched clean inputs, source layer and query positions; teacher forcing=model_0, FCP=model_1, Wan2.1-1.3B. Layer and frame recorded per query in data.json. Original exported PNGs copied byte-for-byte; shared native color scale retained per query.",
+  "future_protocol": "Same clean source chunk; independent offset-specific branches; individual frame 4 decoded from each original GT/prediction MP4, without cropping or compositing.",
+  "assets": [
+    {
+      "asset": "assets/representation/pasta-q1-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "b435d3cd502e53f0b98a08ca020b5b87e5d0159d0ec4d4c2f75114dfcd573559",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png"
+    },
+    {
+      "asset": "assets/representation/pasta-q1-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "be0dba93d9d4320f902e733da3ad64f885e62e8bad981b5274375d1c8aa687a8",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/pasta-q1-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "9d736c712fa9f72106bbe3a5e63af580bccf3a3db3a9771e2d0f44294432b859",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/pasta-q2-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "650fe6343adca1ae476873534519a0e4aa9c8933bdef3f44766d6324ce5f2c7f",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png"
+    },
+    {
+      "asset": "assets/representation/pasta-q2-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "5cfaed1c946e62a835c74c14c51b26ac955bc55b5fdbe8a685c3f41b9e279f57",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/pasta-q2-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "f1868300ae62918f245c4a600608beeb045425770f54749f88ef5ab93130844f",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q1-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "a86ca949817f89132c6bbdf3cee8d4c58c0d33586396b32956931b81671771dc",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-reference.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q1-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "c020b0b56bc61688a58e8d822bfe67b5a9175f0c66c436b370db59e3bd07371e",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q1-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "89588f96bcaddb1e2679ff7096d3c4da0697ed54e90b09d660b49fe2d86d5cb3",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q2-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "05ed62454939dc84dca4427c728fc8c56cd924d7f9618ec802669eab9a2d7966",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-reference.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q2-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "d1b42efbe1d6e009fcd555e2e95544dbc596ffbd99f90b648d46e1bba52c3ba3",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q2-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "36d0a8a7908335eae39dbb64f4603be46a36757ff7303be372725bf77bc5848d",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q3-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "0770318c31d6586d08e510e74abf91a7338a9e3971bea482e9aca7ea6641e3c2",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-reference.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q3-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "60d440944e7dd946c745aa1318ae6e2bef02b10942580b0d6f62c019e5c931dc",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/blocks-q3-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "45aa455c02b90df4f0abfa575d5d82168e618b966e86c9f71f1640040a5c004c",
+      "source_panel": "latent-0027-target-chunk-005-local-002-rgb-000107-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/wave-source.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "ea35a2b746d03bb6a1bec4ed307aa8b28d43f8aa90e628f9a0ddf4a167c1d195",
+      "source_panel": "train-00000146-chunk=0002.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset1-gt.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "b93f72ddaaab53d28b1cfedf39abb716d314d899316562de5b7f239d630f243a",
+      "source_panel": "train-00000146-chunk=0003.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset1-prediction.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "1c9d1777884ce5b1bd34144da8159f05aa366667737e55bce83b2078e3310854",
+      "source_panel": "train-00000146-42-src=0002-offset=1-stream=clean.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset3-gt.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "bc960b3c6b02c052253f33962c62e2f480ffa009cdfdb76a1e2fc30d9ba122d6",
+      "source_panel": "train-00000146-chunk=0005.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset3-prediction.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "bd6114f2923e12da441f661e66cd6e859df453eb68acad137acc505ddd7b9b0d",
+      "source_panel": "train-00000146-42-src=0002-offset=3-stream=clean.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset5-gt.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "38ebef65fbb6e7048a630052dda7031b893e85b4a7bf31b9b9d4f7384e585d67",
+      "source_panel": "train-00000146-chunk=0007.mp4"
+    },
+    {
+      "asset": "assets/representation/wave-offset5-prediction.png",
+      "source": "Frame decoded from original future-prediction video",
+      "decoded_frame": 4,
+      "sha256": "c029f1bbbacdcec2489c33fb19b5a518fbd16a94c43b2a1707254f3945ccf0ef",
+      "source_panel": "train-00000146-42-src=0002-offset=5-stream=clean.mp4"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l03-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "d72ff78b25642f4085130bc6578f4201ba33cd8e7ad870e0a5c82b6d3bd82d7e",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l03-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "b2e710335445ad1a6e3debea3bdb2ce51d72bb97f12f18f4cc4be8983facd2a1",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l03-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "c0a2ea5889bbc47a025029478a0fee24826a5437f4d9d5317023da9c7d95434e",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l06-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "64048cf3b7987a7a57135de5e522ab80a9150660f6252f5a2129cb310890831c",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l06-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "eea6d9a540ee488da76a64d8500f66ef3223fd6a064a243cd2c67ab60b8b93a8",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l06-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "bc8c1f1c8a8f5dcce42e04d98e1fea524ec6c425e54b277d11bdd0150c7f7ad1",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l12-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "f10fb35da20f0a6bcfdb2aac1cbedabfaf94122c2769a206963ed5347a6ff60e",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l12-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "a197e7dc88b99d375ca63e9540f9bcd19cfe9209d70a59aa1dfa37a23ef01ff7",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l12-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "e45c3df6a63298194f6efbc73dd4e5e07a77435923b2c46435fede9a9d9a5d10",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l21-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "049b36a79c2d91c2929634ac566bd37b0de3dc6af609adc0679fccedadb47379",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l21-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "fad4ddc2a5f2af76c2682075a32eacfd8344d30fcabaddfb81227540e65a85f7",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q1-l21-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "54e881478947a7fdea47f60e1eef63e8d9f0b66df1ef30aa9e081114ad346c35",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l03-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "d72ff78b25642f4085130bc6578f4201ba33cd8e7ad870e0a5c82b6d3bd82d7e",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l03-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "c496c706e9d9302714b856c8afb1ecc28f351f22569a6d2a04e67aa40aeccaa6",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l03-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "b9d4fa4ffc32d3b54edb7392876126fdbcc85ab381a3f3534e00283da08fa428",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l09-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "1ba1b8bc168ba7f522cb3a43c514e4065cbd84cf563095b6e5e43c6bba181c24",
+      "source_panel": "latent-0009-target-chunk-002-local-002-rgb-000035-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l09-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "f6d2f85ba6cf5ed76686860add1fc79a062afed9c95acf3c5a40363243a84687",
+      "source_panel": "latent-0009-target-chunk-002-local-002-rgb-000035-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l09-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "4b0d3ccbcdd3dcf1e3c90b28c13f66e4c51066280aa984750fc2b381473c7b91",
+      "source_panel": "latent-0009-target-chunk-002-local-002-rgb-000035-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l15-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "f647b9120fafe7d698f6da1f650df9d905fa11454df818b3cd6e208d8a78f045",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l15-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "6dea348ea1067a8da61b7efb27247fc7e2cb50af9603de7f15363000c8c853bc",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l15-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "67d96dbaab310cd7321b173892f7e675015adb9c3388a302aa275da21cc7a03a",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l21-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "5a4b92383593a50957ec9d09affe97f77cd1b2303b3cbb3d89bbb11afeb10bae",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l21-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "a2b045f89509b5d05c3f7183adbcc1fd52913d956f6b81c35816bdaf9cddc5a2",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/traffic-q2-l21-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "808eaa4575fdcf14713c1df8b0a45e3795134ef75a4cee24d285355c33765a84",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l03-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "b60ea581cb110da60b3f7fe46c48624097186614421613bb833eeb373a0a7d92",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l03-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "be293869f2d62e0e54d8592c7a3e063015ce1cf2a0b73ad59a86f0e5b7865184",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l03-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "839251ce91a3b207c68002c5fad9f7c15cf6356e3694648cd7889ad60472e16c",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l06-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "7d33431a2dabb4f1774c60a954f27d27da3a344c402076ff8372edf40e972f4c",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l06-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "45a669c61e0be908c7b5bd1dd54cafd13ccf50f0e5ada4399faebd003ef0429a",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l06-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "420389d951793c217b04c56badc5028ba20c092302445a5d447e8d78507a7a2d",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l12-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "dd112ae2b3cb80cccbfffa028bc775945662177547074cb03d16050dd656021b",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l12-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "09b06facb53d4cf00031dc3b6016c4c8ff1716d800f95cc2b99706c1c8a79b5e",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l12-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "c5f06e7561db249b8da89faf80ed50fca9412fb8da8be6564535b90505fe4cc6",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l21-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "8b4f20def61c67ed873d146d72e560d6906b8a1a9ba41f75f5bf9e039a3cb56d",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l21-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "24fd28ff505199c1b6cfba249ecb8aff8abedbf57a69c48e47758e0ee7299049",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q1-l21-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "4970537e336f0079cd3ea1e44246177e8433156ddf68fc06ec598ac69258fdd8",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l03-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "b60ea581cb110da60b3f7fe46c48624097186614421613bb833eeb373a0a7d92",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l03-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "624b854211593e54a6e2e82ea61ff3a9c0b7fd7466516a2fcbbd31b206c25e88",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l03-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "72b051de96ffcfbca9334f30114438ed3f0b7f772a486f75d68e74829eb17123",
+      "source_panel": "latent-0003-target-chunk-000-local-002-rgb-000011-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l06-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "7d33431a2dabb4f1774c60a954f27d27da3a344c402076ff8372edf40e972f4c",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l06-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "bdb0be444806c9386446d9d3d4c6c54900df3c7fc4d359364d92ef106a7a2f77",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l06-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "591ed9d85c2664ae64c9700eb42ec61d7e2793ef0a2178fc1a141dc264a578e8",
+      "source_panel": "latent-0006-target-chunk-001-local-002-rgb-000023-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l12-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "dd112ae2b3cb80cccbfffa028bc775945662177547074cb03d16050dd656021b",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l12-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "733b4fc05a96c01143e26d9fdd479cfe1d860a52427fea2f16f47078ddc260e9",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l12-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "c18215cb08d29c6c1bb2358fa09b88a286eba4e02bade1bea1e903afe1465268",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l21-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "d9e0bfd4d4e06b11ea85c7ace6770fa37e9f55acd3de938522f04225348fbe3b",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l21-tf.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "c11baa0c910ba929e8e54eba62fa920ff48a129e95acc6a95ebd5468e9e46ae0",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/windsurfing-q2-l21-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "sha256": "432df34ce4933e65274015733de1cac919bb8ce35793f32b080e2a66355eb03c",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q1-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "a6fff280efd0821b59ecf122112caa83bc34e75cf20db15b0fac4001eab2a69e",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q1-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "7f5ff73476b295352e3dfd2b287f32cfe56ad1225a20f65e6f18d5528cd81d05",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q1-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "2c79beb22b3ec0e1e9ed939e566c39b7710ebe2c4a9901ec36c2fbedaaa363f6",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q2-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "cfac5502ead63b94ad4b2ec0009116ebab14ef415d8da315e3bd776e5628a5e1",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q2-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "d694ea1455eb149d88f47e7f1a399373c34077ee487c12448a5ae6f0c2752698",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/almonds-q2-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "43454819a8ef3eafe278d5a1656dac806040a9837680c489ce9d0c6e9d52c742",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/fries-q1-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "e115b0893661a8b3a569cd4b65d4b616b895bb98c29646476cd2f47975c45c09",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/fries-q1-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "82b1bb40d87241c75fbefee3937b7badf118a37b4c994736f84a1dc2d6547d98",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/fries-q1-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "075db2d4b9ca89325bb1e3c9084d203d2462261a4ef982e3015039fefb7a78b3",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/fries-q2-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "f973caa47e02d71252abcf1833e6a365283543c9f8721e7e82c491382c0c2ce9",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png"
+    },
+    {
+      "asset": "assets/representation/fries-q2-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "93e7ecfad9e99169782e609bd53b4b17860c8263f7b2165788807efb78beaa7a",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/fries-q2-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "024044f4cdf2b0a10cca7f1a66417b446f154344b9c87033793d08079e36bb23",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/collision-q1-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "8964ecb83b79ddf10b603b3633636971bf654418fc230c5f3503dc7f04c3da27",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-reference.png"
+    },
+    {
+      "asset": "assets/representation/collision-q1-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "13d12b7432a81787a85460b5b68ed26b09ebe31ef14bf894f9f7bd0a0490601d",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/collision-q1-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "05a1cc79a74c7838ea77897b8de2695ff5f7b5c6b8853cad80690d572be07b5a",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/collision-q2-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "e86b40ce68dda9bd151a93190b39560000bd46a4e1560f3f3a7efb2a0061644f",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-reference.png"
+    },
+    {
+      "asset": "assets/representation/collision-q2-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "bde6867d8dfe22f27a5d8fb3579c7768e9194a12827ad7c2fa58a46fcc744900",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-similarity-model_0.png"
+    },
+    {
+      "asset": "assets/representation/collision-q2-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "sha256": "d9b77bc718efbc40ef831010d5e5046b9813b4e37845a95b4266d14d8d97d38b",
+      "source_panel": "latent-0009-context-local-009-rgb-000035-similarity-model_1.png"
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l12-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-reference.png",
+      "sha256": "65b2827079bd073b64a6f0f731736ea71966f12635a4aef5adb20fa890c5a6da",
+      "rgb_frame": 47,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l12-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0012-target-chunk-003-local-002-rgb-000047-similarity-model_1.png",
+      "sha256": "5b1633d740a7d62305435d4ca5b54e2dabe5d9e6900f50d94341dae89489fac9",
+      "rgb_frame": 47,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l15-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png",
+      "sha256": "3eed155d520ae651806442d87ec02926131e8cadc989a7918d3155fae16dc6b8",
+      "rgb_frame": 59,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l15-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png",
+      "sha256": "2adadea3e91229824fbb12fed62d05760f379dd9035ebefa6b33ff0cd404aed5",
+      "rgb_frame": 59,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l18-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0018-target-chunk-005-local-002-rgb-000071-reference.png",
+      "sha256": "17e2681875f0b16ce5c9dfae82dc3698713480ca38c2d81a3a8669f26b0890c1",
+      "rgb_frame": 71,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l18-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0018-target-chunk-005-local-002-rgb-000071-similarity-model_1.png",
+      "sha256": "3446b68c10224c9680a713c1cb91f2c60cc217280f1e110800775c010d06425c",
+      "rgb_frame": 71,
+      "query_marker": false
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l21-reference.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png",
+      "sha256": "237567b9173dc24167e7c5c8ee5ab010e9582840a873204d1fa29c61a7e2d042",
+      "rgb_frame": 83,
+      "query_marker": true
+    },
+    {
+      "asset": "assets/representation/motocross-q1-l21-fcp.png",
+      "source": "Original anchor-only-box representation panel export",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png",
+      "sha256": "c4dec5cee022a6382cc177c7bafbc3d36fab16c169b40d738a4f1aa10f2a9c59",
+      "rgb_frame": 83,
+      "query_marker": true
+    },
+    {
+      "asset": "assets/representation/pasta-q3-r10-c21-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png",
+      "sha256": "eb55f13d4c8ab68480d6f40668842e77580cee84a8478b7e3d1d4113eb00858c",
+      "query": [
+        10,
+        21
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/pasta-q3-r10-c21-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png",
+      "sha256": "2926368b1073b0c15750b4b001bd5769ab1c9a8f04445af3ed87d79c9ee37e69",
+      "query": [
+        10,
+        21
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/pasta-q3-r10-c21-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png",
+      "sha256": "1b69e517d7bae420712ed243e69064fafc4594b8e5369ed2b47b40039236775c",
+      "query": [
+        10,
+        21
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/almonds-q3-r20-c22-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-reference.png",
+      "sha256": "690ae53b0815bdbfe5d6bd44763f9fe1242f158373d9ba38929421b79772010d",
+      "query": [
+        20,
+        22
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/almonds-q3-r20-c22-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_0.png",
+      "sha256": "45696ebac45b712c1cb745f461d688d184eab3f64d252581196f4c723499d74a",
+      "query": [
+        20,
+        22
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/almonds-q3-r20-c22-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0015-target-chunk-004-local-002-rgb-000059-similarity-model_1.png",
+      "sha256": "bd3a23e4dee5685bddd6a65f71e85c1053582766bc2326ed33f6d59e96cd72de",
+      "query": [
+        20,
+        22
+      ],
+      "rgb_frame": 59,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/fries-q3-r04-c21-reference.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-reference.png",
+      "sha256": "3f7e271a6764d4630e3bcf887115ee200d649381845d7d6ab885ab9ca97c975f",
+      "query": [
+        4,
+        21
+      ],
+      "rgb_frame": 83,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/fries-q3-r04-c21-tf.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_0.png",
+      "sha256": "103cc06d99963b2c32ea61b85ccd38ecf2e8e1bfccd11bb77bfc7d5d4184784b",
+      "query": [
+        4,
+        21
+      ],
+      "rgb_frame": 83,
+      "layer": 26
+    },
+    {
+      "asset": "assets/representation/fries-q3-r04-c21-fcp.png",
+      "source": "Original all-latents-box representation panel export",
+      "source_panel": "latent-0021-target-chunk-006-local-002-rgb-000083-similarity-model_1.png",
+      "sha256": "226684bdda6a2daadf636733623fa4aab4a759ced8e68e581727fac91e5fdfdb",
+      "query": [
+        4,
+        21
+      ],
+      "rgb_frame": 83,
+      "layer": 26
+    }
+  ],
+  "temporal_protocol": "Fixed anchor query on matched clean video frames; SpatioTemporal displays original frames and FCP (Wan2.1-1.3B) only. Anchor frame, source layer, query coordinates, frame sequence and original shared color range are recorded per query in data.json. Original anchor-only-box PNGs are copied byte-for-byte; the query marker appears only on the anchor frame."
+}

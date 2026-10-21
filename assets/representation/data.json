@@ -1,0 +1,572 @@
+{
+  "spatial": {
+    "pasta": {
+      "title": "Pasta shells",
+      "model": "Wan2.1-1.3B",
+      "queries": [
+        {
+          "label": "Query 1",
+          "query": [
+            11,
+            34
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.18231350362300874,
+            0.7623034721612931
+          ],
+          "assets": {
+            "reference": "assets/representation/pasta-q1-reference.png",
+            "tf": "assets/representation/pasta-q1-tf.png",
+            "fcp": "assets/representation/pasta-q1-fcp.png"
+          }
+        },
+        {
+          "label": "Query 2",
+          "query": [
+            14,
+            43
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.1041583064943552,
+            0.7753456848859788
+          ],
+          "assets": {
+            "reference": "assets/representation/pasta-q2-reference.png",
+            "tf": "assets/representation/pasta-q2-tf.png",
+            "fcp": "assets/representation/pasta-q2-fcp.png"
+          }
+        },
+        {
+          "label": "Query 3",
+          "query": [
+            10,
+            21
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.2171721625328064,
+            0.8004158854484559
+          ],
+          "assets": {
+            "reference": "assets/representation/pasta-q3-r10-c21-reference.png",
+            "tf": "assets/representation/pasta-q3-r10-c21-tf.png",
+            "fcp": "assets/representation/pasta-q3-r10-c21-fcp.png"
+          }
+        }
+      ]
+    },
+    "blocks": {
+      "title": "Stacked blocks",
+      "model": "Wan2.1-1.3B",
+      "queries": [
+        {
+          "label": "Query 1",
+          "query": [
+            11,
+            18
+          ],
+          "frame": 107,
+          "layer": 26,
+          "range": [
+            0.09330089837312698,
+            0.7501152843236925
+          ],
+          "assets": {
+            "reference": "assets/representation/blocks-q1-reference.png",
+            "tf": "assets/representation/blocks-q1-tf.png",
+            "fcp": "assets/representation/blocks-q1-fcp.png"
+          }
+        },
+        {
+          "label": "Query 2",
+          "query": [
+            15,
+            18
+          ],
+          "frame": 107,
+          "layer": 26,
+          "range": [
+            0.2360912624001503,
+            0.8386496722698211
+          ],
+          "assets": {
+            "reference": "assets/representation/blocks-q2-reference.png",
+            "tf": "assets/representation/blocks-q2-tf.png",
+            "fcp": "assets/representation/blocks-q2-fcp.png"
+          }
+        },
+        {
+          "label": "Query 3",
+          "query": [
+            16,
+            23
+          ],
+          "frame": 107,
+          "layer": 26,
+          "range": [
+            0.16715650409460067,
+            0.789790370464325
+          ],
+          "assets": {
+            "reference": "assets/representation/blocks-q3-reference.png",
+            "tf": "assets/representation/blocks-q3-tf.png",
+            "fcp": "assets/representation/blocks-q3-fcp.png"
+          }
+        }
+      ]
+    },
+    "almonds": {
+      "title": "Almonds",
+      "model": "Wan2.1-1.3B",
+      "queries": [
+        {
+          "label": "Query 1",
+          "query": [
+            4,
+            23
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.20515773460268974,
+            0.7751621913909912
+          ],
+          "assets": {
+            "reference": "assets/representation/almonds-q1-reference.png",
+            "tf": "assets/representation/almonds-q1-tf.png",
+            "fcp": "assets/representation/almonds-q1-fcp.png"
+          }
+        },
+        {
+          "label": "Query 2",
+          "query": [
+            13,
+            4
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.17636307299137116,
+            0.8178752464056016
+          ],
+          "assets": {
+            "reference": "assets/representation/almonds-q2-reference.png",
+            "tf": "assets/representation/almonds-q2-tf.png",
+            "fcp": "assets/representation/almonds-q2-fcp.png"
+          }
+        },
+        {
+          "label": "Query 3",
+          "query": [
+            20,
+            22
+          ],
+          "frame": 59,
+          "layer": 26,
+          "range": [
+            0.19409632176160813,
+            0.8732706725597381
+          ],
+          "assets": {
+            "reference": "assets/representation/almonds-q3-r20-c22-reference.png",
+            "tf": "assets/representation/almonds-q3-r20-c22-tf.png",
+            "fcp": "assets/representation/almonds-q3-r20-c22-fcp.png"
+          }
+        }
+      ]
+    },
+    "fries": {
+      "title": "French fries",
+      "model": "Wan2.1-1.3B",
+      "queries": [
+        {
+          "label": "Query 1",
+          "query": [
+            11,
+            34
+          ],
+          "frame": 83,
+          "layer": 26,
+          "range": [
+            -0.01741269711405039,
+            0.8537751489877701
+          ],
+          "assets": {
+            "reference": "assets/representation/fries-q1-reference.png",
+            "tf": "assets/representation/fries-q1-tf.png",
+            "fcp": "assets/representation/fries-q1-fcp.png"
+          }
+        },
+        {
+          "label": "Query 2",
+          "query": [
+            18,
+            41
+          ],
+          "frame": 83,
+          "layer": 26,
+          "range": [
+            -0.014946205671876663,
+            0.8615070134401321
+          ],
+          "assets": {
+            "reference": "assets/representation/fries-q2-reference.png",
+            "tf": "assets/representation/fries-q2-tf.png",
+            "fcp": "assets/representation/fries-q2-fcp.png"
+          }
+        },
+        {
+          "label": "Query 3",
+          "query": [
+            4,
+            21
+          ],
+          "frame": 83,
+          "layer": 26,
+          "range": [
+            0.011632341332733631,
+            0.8046829897165299
+          ],
+          "assets": {
+            "reference": "assets/representation/fries-q3-r04-c21-reference.png",
+            "tf": "assets/representation/fries-q3-r04-c21-tf.png",
+            "fcp": "assets/representation/fries-q3-r04-c21-fcp.png"
+          }
+        }
+      ]
+    },
+    "collision": {
+      "title": "Ball collision",
+      "model": "Wan2.1-1.3B",
+      "queries": [
+        {
+          "label": "Query 1",
+          "query": [
+            8,
+            21
+          ],
+          "frame": 35,
+          "layer": 20,
+          "range": [
+            0.44376858592033386,
+            0.7657362890243531
+          ],
+          "assets": {
+            "reference": "assets/representation/collision-q1-reference.png",
+            "tf": "assets/representation/collision-q1-tf.png",
+            "fcp": "assets/representation/collision-q1-fcp.png"
+          }
+        },
+        {
+          "label": "Query 2",
+          "query": [
+            7,
+            34
+          ],
+          "frame": 35,
+          "layer": 20,
+          "range": [
+            0.439671770632267,
+            0.8282711416482925
+          ],
+          "assets": {
+            "reference": "assets/representation/collision-q2-reference.png",
+            "tf": "assets/representation/collision-q2-tf.png",
+            "fcp": "assets/representation/collision-q2-fcp.png"
+          }
+        }
+      ]
+    }
+  },
+  "temporal": {
+    "scenes": {
+      "traffic": {
+        "title": "Traffic at an intersection",
+        "model": "Wan2.1-1.3B",
+        "queries": [
+          {
+            "label": "Query 1",
+            "query": [
+              9,
+              30
+            ],
+            "layer": 20,
+            "anchor_latent": 21,
+            "anchor_rgb_frame": 83,
+            "range": [
+              0.33851443767547607,
+              0.7066140359640122
+            ],
+            "fps": 16,
+            "frames": [
+              {
+                "latent": 3,
+                "assets": {
+                  "reference": "assets/representation/traffic-q1-l03-reference.png",
+                  "tf": "assets/representation/traffic-q1-l03-tf.png",
+                  "fcp": "assets/representation/traffic-q1-l03-fcp.png"
+                },
+                "rgb_frame": 11
+              },
+              {
+                "latent": 6,
+                "assets": {
+                  "reference": "assets/representation/traffic-q1-l06-reference.png",
+                  "tf": "assets/representation/traffic-q1-l06-tf.png",
+                  "fcp": "assets/representation/traffic-q1-l06-fcp.png"
+                },
+                "rgb_frame": 23
+              },
+              {
+                "latent": 12,
+                "assets": {
+                  "reference": "assets/representation/traffic-q1-l12-reference.png",
+                  "tf": "assets/representation/traffic-q1-l12-tf.png",
+                  "fcp": "assets/representation/traffic-q1-l12-fcp.png"
+                },
+                "rgb_frame": 47
+              },
+              {
+                "latent": 21,
+                "assets": {
+                  "reference": "assets/representation/traffic-q1-l21-reference.png",
+                  "tf": "assets/representation/traffic-q1-l21-tf.png",
+                  "fcp": "assets/representation/traffic-q1-l21-fcp.png"
+                },
+                "rgb_frame": 83
+              }
+            ]
+          },
+          {
+            "label": "Query 2",
+            "query": [
+              14,
+              30
+            ],
+            "layer": 20,
+            "anchor_latent": 21,
+            "anchor_rgb_frame": 83,
+            "range": [
+              0.33336859464645385,
+              0.7236443167924881
+            ],
+            "fps": 16,
+            "frames": [
+              {
+                "latent": 3,
+                "assets": {
+                  "reference": "assets/representation/traffic-q2-l03-reference.png",
+                  "tf": "assets/representation/traffic-q2-l03-tf.png",
+                  "fcp": "assets/representation/traffic-q2-l03-fcp.png"
+                },
+                "rgb_frame": 11
+              },
+              {
+                "latent": 9,
+                "assets": {
+                  "reference": "assets/representation/traffic-q2-l09-reference.png",
+                  "tf": "assets/representation/traffic-q2-l09-tf.png",
+                  "fcp": "assets/representation/traffic-q2-l09-fcp.png"
+                },
+                "rgb_frame": 35
+              },
+              {
+                "latent": 15,
+                "assets": {
+                  "reference": "assets/representation/traffic-q2-l15-reference.png",
+                  "tf": "assets/representation/traffic-q2-l15-tf.png",
+                  "fcp": "assets/representation/traffic-q2-l15-fcp.png"
+                },
+                "rgb_frame": 59
+              },
+              {
+                "latent": 21,
+                "assets": {
+                  "reference": "assets/representation/traffic-q2-l21-reference.png",
+                  "tf": "assets/representation/traffic-q2-l21-tf.png",
+                  "fcp": "assets/representation/traffic-q2-l21-fcp.png"
+                },
+                "rgb_frame": 83
+              }
+            ]
+          }
+        ],
+        "subject": "vehicle"
+      },
+      "windsurfing": {
+        "title": "Windsurfing",
+        "subject": "sail",
+        "model": "Wan2.1-1.3B",
+        "queries": [
+          {
+            "label": "Query 1",
+            "query": [
+              11,
+              19
+            ],
+            "layer": 26,
+            "anchor_latent": 21,
+            "anchor_rgb_frame": 83,
+            "range": [
+              0.07947431348264218,
+              0.6992084240913392
+            ],
+            "fps": 16,
+            "frames": [
+              {
+                "latent": 3,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q1-l03-reference.png",
+                  "tf": "assets/representation/windsurfing-q1-l03-tf.png",
+                  "fcp": "assets/representation/windsurfing-q1-l03-fcp.png"
+                },
+                "rgb_frame": 11
+              },
+              {
+                "latent": 6,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q1-l06-reference.png",
+                  "tf": "assets/representation/windsurfing-q1-l06-tf.png",
+                  "fcp": "assets/representation/windsurfing-q1-l06-fcp.png"
+                },
+                "rgb_frame": 23
+              },
+              {
+                "latent": 12,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q1-l12-reference.png",
+                  "tf": "assets/representation/windsurfing-q1-l12-tf.png",
+                  "fcp": "assets/representation/windsurfing-q1-l12-fcp.png"
+                },
+                "rgb_frame": 47
+              },
+              {
+                "latent": 21,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q1-l21-reference.png",
+                  "tf": "assets/representation/windsurfing-q1-l21-tf.png",
+                  "fcp": "assets/representation/windsurfing-q1-l21-fcp.png"
+                },
+                "rgb_frame": 83
+              }
+            ]
+          },
+          {
+            "label": "Query 2",
+            "query": [
+              19,
+              22
+            ],
+            "layer": 26,
+            "anchor_latent": 21,
+            "anchor_rgb_frame": 83,
+            "range": [
+              0.09023202568292618,
+              0.6336060702800751
+            ],
+            "fps": 16,
+            "frames": [
+              {
+                "latent": 3,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q2-l03-reference.png",
+                  "tf": "assets/representation/windsurfing-q2-l03-tf.png",
+                  "fcp": "assets/representation/windsurfing-q2-l03-fcp.png"
+                },
+                "rgb_frame": 11
+              },
+              {
+                "latent": 6,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q2-l06-reference.png",
+                  "tf": "assets/representation/windsurfing-q2-l06-tf.png",
+                  "fcp": "assets/representation/windsurfing-q2-l06-fcp.png"
+                },
+                "rgb_frame": 23
+              },
+              {
+                "latent": 12,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q2-l12-reference.png",
+                  "tf": "assets/representation/windsurfing-q2-l12-tf.png",
+                  "fcp": "assets/representation/windsurfing-q2-l12-fcp.png"
+                },
+                "rgb_frame": 47
+              },
+              {
+                "latent": 21,
+                "assets": {
+                  "reference": "assets/representation/windsurfing-q2-l21-reference.png",
+                  "tf": "assets/representation/windsurfing-q2-l21-tf.png",
+                  "fcp": "assets/representation/windsurfing-q2-l21-fcp.png"
+                },
+                "rgb_frame": 83
+              }
+            ]
+          }
+        ]
+      },
+      "motocross": {
+        "title": "Motocross rider",
+        "subject": "motorcycle rider",
+        "model": "Wan2.1-1.3B",
+        "queries": [
+          {
+            "label": "Query 1",
+            "query": [
+              13,
+              28
+            ],
+            "layer": 26,
+            "anchor_latent": 21,
+            "anchor_rgb_frame": 83,
+            "range": [
+              0.02819677645340562,
+              0.6366898691654206
+            ],
+            "fps": 16,
+            "frames": [
+              {
+                "latent": 12,
+                "assets": {
+                  "reference": "assets/representation/motocross-q1-l12-reference.png",
+                  "fcp": "assets/representation/motocross-q1-l12-fcp.png"
+                },
+                "rgb_frame": 47
+              },
+              {
+                "latent": 15,
+                "assets": {
+                  "reference": "assets/representation/motocross-q1-l15-reference.png",
+                  "fcp": "assets/representation/motocross-q1-l15-fcp.png"
+                },
+                "rgb_frame": 59
+              },
+              {
+                "latent": 18,
+                "assets": {
+                  "reference": "assets/representation/motocross-q1-l18-reference.png",
+                  "fcp": "assets/representation/motocross-q1-l18-fcp.png"
+                },
+                "rgb_frame": 71
+              },
+              {
+                "latent": 21,
+                "assets": {
+                  "reference": "assets/representation/motocross-q1-l21-reference.png",
+                  "fcp": "assets/representation/motocross-q1-l21-fcp.png"
+                },
+                "rgb_frame": 83
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}

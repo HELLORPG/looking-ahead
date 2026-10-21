@@ -1,0 +1,125 @@
+{
+  "model": "Wan2.1-1.3B",
+  "compute_method": "Analytical major-matmul FLOPs estimate; multiply-add=2 FLOPs",
+  "x": "Cumulative estimated training FLOPs",
+  "y": "Physics-IQ mean",
+  "series": [
+    {
+      "method": "TF baseline",
+      "label": "Teacher forcing",
+      "estimated_flops_per_global_step": 10256956740599808,
+      "points": [
+        {
+          "step": 5000,
+          "training_flops": 51284783702999040000,
+          "iq": 25.359,
+          "sample_presentations": 40000
+        },
+        {
+          "step": 7500,
+          "training_flops": 76927175554498560000,
+          "iq": 25.486,
+          "sample_presentations": 60000
+        },
+        {
+          "step": 10000,
+          "training_flops": 102569567405998080000,
+          "iq": 26.436,
+          "sample_presentations": 80000
+        },
+        {
+          "step": 12500,
+          "training_flops": 128211959257497600000,
+          "iq": 27.848,
+          "sample_presentations": 100000
+        },
+        {
+          "step": 15000,
+          "training_flops": 153854351108997120000,
+          "iq": 25.879,
+          "sample_presentations": 120000
+        },
+        {
+          "step": 17500,
+          "training_flops": 179496742960496640000,
+          "iq": 27.891,
+          "sample_presentations": 140000
+        },
+        {
+          "step": 20000,
+          "training_flops": 205139134811996160000,
+          "iq": 27.554,
+          "sample_presentations": 160000
+        }
+      ],
+      "fit_parameters": {
+        "intercept": 25.223460638405186,
+        "gain": 2.3658457140244877,
+        "tau_over_span": 0.6906105129522777,
+        "x_min_1e20_flops": 0.5128478370299904,
+        "x_max_1e20_flops": 2.0513913481199615,
+        "sum_squared_error": 3.080249446143549
+      }
+    },
+    {
+      "method": "Ours",
+      "label": "+ FCP",
+      "estimated_flops_per_global_step": 11802303170347008,
+      "points": [
+        {
+          "step": 5000,
+          "training_flops": 59011515851735040000,
+          "iq": 26.978,
+          "sample_presentations": 40000
+        },
+        {
+          "step": 7500,
+          "training_flops": 88517273777602560000,
+          "iq": 28.211,
+          "sample_presentations": 60000
+        },
+        {
+          "step": 10000,
+          "training_flops": 118023031703470080000,
+          "iq": 30.004,
+          "sample_presentations": 80000
+        },
+        {
+          "step": 12500,
+          "training_flops": 147528789629337600000,
+          "iq": 30.351,
+          "sample_presentations": 100000
+        },
+        {
+          "step": 15000,
+          "training_flops": 177034547555205120000,
+          "iq": 29.557,
+          "sample_presentations": 120000
+        },
+        {
+          "step": 17500,
+          "training_flops": 206540305481072640000,
+          "iq": 30.372,
+          "sample_presentations": 140000
+        },
+        {
+          "step": 20000,
+          "training_flops": 236046063406940160000,
+          "iq": 30.89,
+          "sample_presentations": 160000
+        }
+      ],
+      "fit_parameters": {
+        "intercept": 26.901811914239296,
+        "gain": 3.6419354956462597,
+        "tau_over_span": 0.27664407551765413,
+        "x_min_1e20_flops": 0.5901151585173504,
+        "x_max_1e20_flops": 2.3604606340694017,
+        "sum_squared_error": 1.1802119986923867
+      }
+    }
+  ],
+  "global_batch_size": 8,
+  "color_depth": "Light to dark encodes cumulative sample presentations (including repeats), 40000 to 160000",
+  "fit_model": "Monotone exponential saturation, unweighted least squares; measured domain only"
+}

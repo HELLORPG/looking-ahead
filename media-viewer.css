@@ -1,0 +1,26 @@
+html.media-viewer-open{overflow:hidden}
+.media-viewer{position:fixed;inset:0;width:100vw;max-width:none;height:100vh;height:100dvh;max-height:none;margin:0;padding:0;border:0;background:var(--bg);color:var(--text);overscroll-behavior:contain}
+.media-viewer::backdrop{background:#050911ed}
+.media-viewer[open]{display:flex;flex-direction:column}
+.media-viewer-toolbar{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 24px;border-bottom:1px solid var(--border);flex-shrink:0}
+.media-viewer-toolbar h2{margin:0;font:500 15px/1.4 LocalSans,Arial,sans-serif;letter-spacing:0;min-width:0}
+.media-viewer-actions,.media-viewer-zoom{display:flex;align-items:center;gap:10px}
+.media-viewer-zoom[hidden]{display:none}
+.media-viewer button{background:transparent;border:1px solid var(--border);border-radius:5px;min-width:36px;min-height:36px;padding:4px 10px;font-size:13px;line-height:1.3}
+.media-viewer button:hover{border-color:var(--primary);color:var(--primary)}
+.media-viewer button:disabled{opacity:.35;cursor:default}
+.media-viewer-close{font-size:23px!important;padding:0!important}
+.media-viewer-zoom-value{font-size:12px;min-width:38px;text-align:center;color:var(--muted);font-variant-numeric:tabular-nums}
+.media-viewer-stage{flex:1;min-height:0;overflow:auto;overscroll-behavior:contain;padding:20px 28px;display:flex;align-items:safe center;justify-content:safe center}
+.media-viewer-content{width:100%;min-width:0;flex-shrink:0}
+.media-viewer[data-kind=image] .media-viewer-content{width:calc(100% * var(--media-zoom,1));height:calc(100% * var(--media-zoom,1));display:flex;align-items:center;justify-content:center}
+.media-viewer-image{display:block;width:100%;height:100%;object-fit:contain;max-width:none;user-select:none}
+#media-viewer .training-efficiency-visual{max-width:1400px;width:100%;margin:auto}
+#media-viewer .showcase-main{width:100%;max-width:1600px;margin:auto}
+#media-viewer .showcase-video{width:100%;max-height:calc(100dvh - 240px);object-fit:contain;aspect-ratio:32/9}
+#media-viewer .showcase-observation{min-height:0;margin-bottom:12px}
+.media-expand-button{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:1px solid var(--border);border-radius:5px;padding:4px 9px;background:transparent;font-size:11px;color:var(--muted);min-height:28px;white-space:nowrap}
+.media-expand-button:hover{color:var(--primary);border-color:var(--primary)}
+.media-expand-button svg{display:block;width:15px;height:15px;flex-shrink:0}
+.training-budget-selector .media-expand-button{margin-left:6px;padding:4px 8px;border:1px solid var(--border);font-size:11px}
+@media(max-width:600px){.media-viewer-toolbar{padding:10px 12px;gap:10px;align-items:flex-start}.media-viewer-toolbar h2{font-size:12px}.media-viewer-stage{padding:14px 10px}.media-viewer-actions,.media-viewer-zoom{gap:6px}.media-viewer button{min-height:40px;min-width:32px;padding:4px 7px}.media-viewer-zoom-value{display:none}.media-viewer-toolbar .media-viewer-zoom button{font-size:11px}.media-expand-button{min-height:40px}}

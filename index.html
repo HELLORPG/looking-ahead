@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c111b">
+  <meta name="color-scheme" content="dark">
+  <script>
+    // Prevent native scroll restoration from skipping the homepage introduction on reload.
+    if ((!location.hash || location.hash === '#top') && performance.getEntriesByType('navigation')[0]?.type !== 'back_forward') {
+      document.documentElement.dataset.introScrollRestoration = history.scrollRestoration;
+      history.scrollRestoration = 'manual';
+    }
+  </script>
+  <meta name="description" content="Looking Ahead: Modeling Future Evolution in Autoregressive Video Generation">
+  <title>Looking Ahead · Future Evolution in Video Generation</title>
+  <link rel="icon" href="assets/mark.svg?v=20261016-dark-theme" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/lora-italic-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/lora-regular-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=20261020-diagram-legibility">
+  <link rel="stylesheet" href="hero-background.css?v=20261019-no-controls">
+  <script src="convergence.js?v=20261021-readable-type" defer></script>
+  <script src="script.js?v=20261021-motocross-temporal" defer></script>
+  <link rel="stylesheet" href="showcase.css?v=20261020-inline-viewer">
+  <script src="showcase.js?v=20261020-inline-viewer" defer></script>
+  <script src="hero-background.js?v=20261020-inline-viewer" defer></script>
+  <link rel="stylesheet" href="media-viewer.css?v=20261020-inline-viewer">
+  <script src="media-viewer.js?v=20261020-inline-viewer" defer></script>
+  <link rel="stylesheet" href="typography.css?v=20261021-method-left-aligned">
+</head>
+<body>
+  <template id="hero-intro-template">
+    <div class="hero-intro">
+      <div class="hero-intro-visual" aria-hidden="true">
+        <p class="intro-brand"><span class="intro-word">Looking</span> <em class="intro-word">Ahead</em><span class="intro-dot">.</span></p>
+        <svg class="intro-graphic" viewBox="0 0 1000 350" fill="none" aria-hidden="true"><path class="time-axis" d="M65 164H925M917 158 925 164 917 170"/><g class="time-chunk past-chunk step-0"><rect x="77" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M89 145L140 180H153"/><circle class="rolling-ball" cx="96.961" cy="141.974" r="5.5"/><text x="120" y="120" class="time-label">t − 2</text></g><g class="time-chunk past-chunk step-0"><rect x="187" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M199 145L250 180H263"/><circle class="rolling-ball" cx="215.961" cy="148.150" r="5.5"/><text x="230" y="120" class="time-label">t − 1</text></g><g class="time-chunk current-chunk step-0"><rect x="317" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M329 145L380 180H393"/><circle class="rolling-ball" cx="354.961" cy="154.326" r="5.5"/><text x="360" y="120" class="time-label">t</text></g><g class="current-supervision"><path d="M307 86V76H413V86"/><text x="360" y="43" class="supervision-label">CURRENT SUPERVISION</text><text x="360" y="63" class="supervision-subtitle">Teacher forcing</text></g><g class="source-anchor"><path d="M360 196V252"/><rect x="339" y="252" width="42" height="28" rx="6"/><text x="360" y="272" class="source-symbol">h<tspan dy="4" font-size="12">t</tspan></text><text x="360" y="311" class="source-label">Same source</text></g><rect class="future-placeholder" x="477" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-1"><rect x="477" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M489 145L540 180H553"/><circle class="rolling-ball" cx="523.961" cy="160.503" r="5.5"/><text x="520" y="120" class="time-label">t + 1</text></g><path class="source-distribution" pathLength="1" d="M381 266H818"/><path class="look-path step-1" pathLength="1" d="M498 266Q520 266 520 244V196"/><rect class="future-placeholder" x="637" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-2"><rect x="637" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M649 145L700 180H713"/><circle class="rolling-ball" cx="692.961" cy="166.679" r="5.5"/><text x="680" y="120" class="time-label">t + 2</text></g><path class="look-path step-2" pathLength="1" d="M658 266Q680 266 680 244V196"/><rect class="future-placeholder" x="797" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-3"><rect x="797" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M809 145L860 180H873"/><circle class="rolling-ball" cx="861.961" cy="172.856" r="5.5"/><text x="840" y="120" class="time-label">t + 3</text></g><path class="look-path step-3" pathLength="1" d="M818 266Q840 266 840 244V196"/><g class="future-horizon"><path class="horizon-extension" pathLength="1" d="M477 86V76H883V86"/><text x="680" y="43" class="supervision-label">FUTURE CHUNK PREDICTION</text><text x="680" y="63" class="supervision-subtitle">Ours</text></g><path class="prediction-arrowhead" d="M515 206L520 196L525 206Z"/><path class="prediction-arrowhead" d="M675 206L680 196L685 206Z"/><path class="prediction-arrowhead" d="M835 206L840 196L845 206Z"/></svg>
+        <p class="intro-tagline">Learning from what lies ahead.</p>
+      </div>
+      <div class="intro-progress" aria-hidden="true"><span class="intro-progress-fill"></span></div>
+      <button class="intro-skip" type="button">Click or scroll to explore more <span aria-hidden="true">↓</span></button>
+    </div>
+  </template>
+  <a class="skip-link" href="#overview">Skip to content</a>
+  <header class="site-header">
+    <a class="wordmark" href="#top" aria-label="Looking Ahead home"><img src="assets/mark.svg?v=20261016-dark-theme" width="28" height="28" alt=""> Looking Ahead<span class="wordmark-dot">.</span></a>
+    <nav id="main-navigation" aria-label="Main navigation"><a href="#overview">Overview</a><a href="#method">Method</a><a href="#results">Results</a><a href="#showcase">Demo</a><a href="#representation">Representations</a></nav>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-navigation" aria-label="Open navigation"><span>Menu</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path class="nav-icon-open" d="M4 6h16M4 12h16M4 18h16"/><path class="nav-icon-close" d="m6 6 12 12M18 6 6 18"/></svg></button>
+  </header>
+  <main id="top">
+    <section class="hero" aria-labelledby="project-title">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-background" aria-hidden="true">
+        <div class="hero-video-wall">
+          <video class="hero-demo" data-src="assets/hero/r01-00121-42.mp4" poster="assets/hero/r01-00121-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r01-00366-42.mp4" poster="assets/hero/r01-00366-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r02-00059-42.mp4" poster="assets/hero/r02-00059-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r07-00446-42.mp4" poster="assets/hero/r07-00446-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r13-00327-42.mp4" poster="assets/hero/r13-00327-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r00-00480-42.mp4" poster="assets/hero/r00-00480-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r12-00079-42.mp4" poster="assets/hero/r12-00079-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r11-00417-42.mp4" poster="assets/hero/r11-00417-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r01-00479-42.mp4" poster="assets/hero/r01-00479-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r11-00044-42.mp4" poster="assets/hero/r11-00044-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r15-00511-42.mp4" poster="assets/hero/r15-00511-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+          <video class="hero-demo" data-src="assets/hero/r13-00064-42.mp4" poster="assets/hero/r13-00064-42.jpg" muted loop playsinline preload="none" tabindex="-1" disablepictureinpicture></video>
+        </div>
+      </div>
+      <div class="hero-inner">
+        <h1 id="project-title"><span class="title-looking">Looking</span> <em>Ahead</em><span class="title-period">.</span></h1>
+        <p class="hero-subtitle">Modeling Future Evolution in Autoregressive Video Generation</p>
+        <p class="hero-description"><span class="hero-tagline">Learning from what lies ahead.</span><span class="hero-method">Generative future prediction helps models learn visual dynamics without auxiliary semantic supervision.</span></p>
+        <div class="authors" aria-label="Authors">
+          <a href="https://ruopenggao.com/">Ruopeng Gao<sup>1,*</sup></a><a href="https://yukun-huang.github.io/">Yukun Huang<sup title="‡ Project lead">2,‡</sup></a><a href="https://scholar.google.com/citations?user=0CJPK3IAAAAJ&amp;hl=zh-CN">Jiarui Hu<sup>3</sup></a><a href="https://wangsssssss.github.io/">Shuai Wang<sup>1</sup></a><a href="https://wbhu.github.io/">Wenbo Hu<sup>2</sup></a><a href="https://scholar.google.com.hk/citations?user=4oXBp9UAAAAJ">Ying Shan<sup>2</sup></a><a href="https://wanglimin.github.io/">Limin Wang<sup title="† Corresponding author">1,†</sup></a>
+        </div>
+        <p class="affiliations"><span><sup>1</sup> Nanjing University</span><span><sup>2</sup> Tencent ARC Lab</span><span><sup>3</sup> Zhejiang University</span></p>
+        <p class="author-note"><sup>*</sup> Work done during an internship at Tencent ARC Lab. · <sup>‡</sup> Project lead · <sup>†</sup> Corresponding author</p>
+        <div class="hero-actions resource-badges" aria-label="Project resources">
+          <a class="resource-badge" href="#top" aria-describedby="resource-badges-note" aria-label="Paper — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg><span>Paper<sup class="resource-badge-mark" aria-hidden="true">*</sup></span></a>
+          <a class="resource-badge" href="#top" aria-describedby="resource-badges-note" aria-label="Code — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7-5 5 5 5m10-10 5 5-5 5m-4-13-2 20"/></svg><span>Code<sup class="resource-badge-mark" aria-hidden="true">*</sup></span></a>
+          <a class="resource-badge" href="#top" aria-describedby="resource-badges-note" aria-label="Models — coming soon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg><span>Models<sup class="resource-badge-mark" aria-hidden="true">*</sup></span></a>
+          <span class="resource-badges-note" id="resource-badges-note"><span class="resource-badge-mark">*</span> Not yet released · Coming soon.</span>
+        </div>
+      </div>
+    </section>
+    <section id="overview" class="section overview">
+      <div class="idea-top-row">
+        <div class="section-heading"><p class="eyebrow section-label">01 / THE IDEA</p><h2>To generate the next moment, <em>learn to see beyond it.</em></h2></div>
+        <figure class="idea-figure">
+        <div class="idea-diagram-scroll" tabindex="0" role="region" aria-label="Future-chunk supervision concept; scroll horizontally on narrow screens"><svg class="idea-diagram" viewBox="60 25 860 305" fill="none" role="img" aria-labelledby="idea-figure-title idea-figure-desc"><title id="idea-figure-title">Looking farther ahead through future-chunk prediction</title><desc id="idea-figure-desc">A ball rolls down a slope over six successive video chunks. Teacher forcing supervises the current chunk t. The same source feature h_t also conditions parallel predictions of t+1, t+2 and t+3. These are conceptual illustrations, not generated results.</desc><path class="time-axis" d="M65 164H925M917 158 925 164 917 170"/><g class="time-chunk past-chunk step-0"><rect x="77" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M89 145L140 180H153"/><circle class="rolling-ball" cx="96.961" cy="141.974" r="5.5"/><text x="120" y="120" class="time-label">t − 2</text></g><g class="time-chunk past-chunk step-0"><rect x="187" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M199 145L250 180H263"/><circle class="rolling-ball" cx="215.961" cy="148.150" r="5.5"/><text x="230" y="120" class="time-label">t − 1</text></g><g class="time-chunk current-chunk step-0"><rect x="317" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M329 145L380 180H393"/><circle class="rolling-ball" cx="354.961" cy="154.326" r="5.5"/><text x="360" y="120" class="time-label">t</text></g><g class="current-supervision"><path d="M307 86V76H413V86"/><text x="360" y="43" class="supervision-label">CURRENT SUPERVISION</text><text x="360" y="63" class="supervision-subtitle">Teacher forcing</text></g><g class="source-anchor"><path d="M360 196V252"/><rect x="339" y="252" width="42" height="28" rx="6"/><text x="360" y="272" class="source-symbol">h<tspan dy="4" font-size="12">t</tspan></text><text x="360" y="311" class="source-label">Same source</text></g><rect class="future-placeholder" x="477" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-1"><rect x="477" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M489 145L540 180H553"/><circle class="rolling-ball" cx="523.961" cy="160.503" r="5.5"/><text x="520" y="120" class="time-label">t + 1</text></g><path class="source-distribution" pathLength="1" d="M381 266H818"/><path class="look-path step-1" pathLength="1" d="M498 266Q520 266 520 244V196"/><rect class="future-placeholder" x="637" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-2"><rect x="637" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M649 145L700 180H713"/><circle class="rolling-ball" cx="692.961" cy="166.679" r="5.5"/><text x="680" y="120" class="time-label">t + 2</text></g><path class="look-path step-2" pathLength="1" d="M658 266Q680 266 680 244V196"/><rect class="future-placeholder" x="797" y="132" width="86" height="64" rx="8"/><g class="time-chunk future-chunk step-3"><rect x="797" y="132" width="86" height="64" rx="8"/><path class="frame-mark rolling-ramp" d="M809 145L860 180H873"/><circle class="rolling-ball" cx="861.961" cy="172.856" r="5.5"/><text x="840" y="120" class="time-label">t + 3</text></g><path class="look-path step-3" pathLength="1" d="M818 266Q840 266 840 244V196"/><g class="future-horizon"><path class="horizon-extension" pathLength="1" d="M477 86V76H883V86"/><text x="680" y="43" class="supervision-label">FUTURE CHUNK PREDICTION</text><text x="680" y="63" class="supervision-subtitle">Ours</text></g><path class="prediction-arrowhead" d="M515 206L520 196L525 206Z"/><path class="prediction-arrowhead" d="M675 206L680 196L685 206Z"/><path class="prediction-arrowhead" d="M835 206L840 196L845 206Z"/></svg></div>
+        <button class="idea-replay" type="button" aria-label="Replay future-chunk prediction illustration" hidden>Replay <span aria-hidden="true">↻</span></button>
+      </figure>
+      </div>
+      <div class="overview-copy">
+        <p><strong class="idea-paragraph-lead">Extending a video does not necessarily mean learning how a scene evolves.</strong> Videos contain strong temporal redundancy: neighboring chunks often share similar appearance and motion. Under teacher forcing, a model can exploit this local continuity in the ground-truth history to denoise the current chunk. This creates a shortcut with limited pressure to learn the underlying scene dynamics.</p>
+        <p><strong class="idea-paragraph-lead idea-paragraph-lead-blue">A natural way to move beyond this shortcut is to look farther into the future.</strong> As prediction targets move farther from the observed history, local continuity provides less direct support. Predicting these future chunks without the intervening ground-truth context places greater pressure on the model to capture temporal progression. The auxiliary task uses future video chunks as generative targets in latent space, without an additional semantic teacher.</p>
+      </div>
+    </section>
+    <section id="method" class="section method" aria-labelledby="method-title">
+      <div class="section-topline"><p class="eyebrow section-label">02 / FUTURE CHUNK PREDICTION</p><span class="small-note">Training-time supervision</span></div>
+      <h2 id="method-title" class="method-title">Predicting future chunks. <em>Learning visual evolution.</em></h2>
+      <p class="section-intro method-lead">FCP adds parallel future predictors to an autoregressive video generator. They use intermediate backbone features to predict future chunks at different temporal offsets, without observing the intervening chunks.</p>
+      <div class="method-layout">
+        <div class="method-copy">
+          <div class="method-details">
+            <div class="method-details-header">
+              <p id="method-details-label" class="eyebrow">METHOD DETAILS</p>
+              <div class="method-tabs" role="tablist" aria-labelledby="method-details-label" hidden>
+                <button id="method-tab-parallel" type="button" role="tab" aria-controls="method-panel-parallel" aria-selected="true" tabindex="0">Parallel</button>
+                <button id="method-tab-efficiency" type="button" role="tab" aria-controls="method-panel-efficiency" aria-selected="false" tabindex="-1">Efficiency</button>
+                <button id="method-tab-context" type="button" role="tab" aria-controls="method-panel-context" aria-selected="false" tabindex="-1">Context</button>
+                <button id="method-tab-inference" type="button" role="tab" aria-controls="method-panel-inference" aria-selected="false" tabindex="-1">Inference</button>
+              </div>
+            </div>
+            <div class="method-detail-panels">
+              <article id="method-panel-parallel" class="method-detail-panel"><p><strong>Predict in parallel.</strong> Each future offset has a separate predictor conditioned directly on the same source representation. The branches do not exchange hidden states, preventing visual cues from noisy targets at one offset from reaching predictors at other offsets. This reduces visual shortcuts and information leakage.</p></article>
+              <article id="method-panel-efficiency" class="method-detail-panel"><p><strong>Single-chunk conditioning.</strong> Auxiliary predictors are conditioned only on the hidden states of the source chunk, rather than the full history of hidden states. This promotes compact predictive representations while reducing auxiliary prediction costs.</p></article>
+              <article id="method-panel-context" class="method-detail-panel"><p><strong>Dual-source supervision.</strong> Clean latent processing encodes historical context for subsequent generation, while noisy latent processing supports current-chunk synthesis through denoising. Both roles are essential to autoregressive generation, so we apply future-prediction supervision to both types of representations.</p></article>
+              <article id="method-panel-inference" class="method-detail-panel"><p><strong>Training-only modules.</strong> Future-prediction losses backpropagate through source representations to supervise the generator backbone. At inference, all FCP-specific modules are removed, preserving the teacher-forcing baseline’s autoregressive rollout with no additional overhead.</p></article>
+            </div>
+          </div>
+        </div>
+      <figure id="method-overview" class="method-figure">
+        <p class="diagram-scroll-hint">Scroll horizontally to explore the diagram · view the full-size figure to zoom</p>
+        <div class="method-figure-media" tabindex="0" role="region" aria-label="FCP architecture diagram; scroll horizontally on smaller screens">
+<svg xmlns="http://www.w3.org/2000/svg" class="method-diagram" viewBox="44 4 1188 504" role="img" aria-labelledby="fcp-title fcp-description">
+  <title id="fcp-title">Future Chunk Prediction architecture</title>
+  <desc id="fcp-description">Web drawing based on the paper overview. Clean historical chunks and the current chunk enter the autoregressive Transformer. The current input f_t has a solid left-half and dashed right-half border to indicate use as both a clean latent and a noisy latent. Intermediate hidden state h_t conditions three independent Transformer predictors. Each predictor denoises its own noisy future latent to predict f_t+1, f_t+2, or f_t+3. The predictors do not pass information to one another.</desc>
+  <defs>
+    <marker id="fcp-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#9fc6ed"/></marker>
+    <marker id="fcp-feature-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#9fc6ed"/></marker>
+    <marker id="fcp-main-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 1 L 9 5 L 0 9 Z" fill="#b1bdcb"/></marker>
+  </defs>
+  <style>
+    .fcp-label{font:500 16px Arial,sans-serif;letter-spacing:1.6px;fill:#c3c6cc}
+    .fcp-label.fcp-future-heading{fill:#9fc6ed}
+    .fcp-block-label{font:500 22px Arial,sans-serif;fill:#f1eee7}
+    .fcp-math{font:italic 28px Georgia,serif;fill:#f1eee7;text-anchor:middle}
+    .fcp-latent-math{fill:#23364d}
+    .fcp-sub{font-size:17px}
+    .fcp-note{font:500 13px Arial,sans-serif;fill:#c3c6cc}
+    .fcp-route{fill:none;stroke:#9fc6ed;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .fcp-feature-route{fill:none;stroke:#9fc6ed;stroke-width:2.6;stroke-linejoin:round;stroke-linecap:round}
+    .fcp-main-route{fill:none;stroke:#b1bdcb;stroke-width:2.6;marker-end:url(#fcp-main-arrow)}
+    .fcp-legend .fcp-note{font-size:18px}
+    .fcp-legend .fcp-label{font-size:14px;letter-spacing:1.4px}
+  </style>
+  <rect width="1240" height="540" fill="#10151c"/>
+  <text x="238" y="26" text-anchor="middle" class="fcp-label">AUTOREGRESSIVE BACKBONE</text>
+  <text x="884.5" y="26" text-anchor="middle" class="fcp-label fcp-future-heading">PARALLEL FUTURE PREDICTORS</text>
+
+<rect x="64" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="93" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="64" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="93" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="64" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="93" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−3</tspan></text>
+<rect x="154" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="183" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="154" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="183" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="154" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="183" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−2</tspan></text>
+<rect x="244" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="273" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="244" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="273" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="244" y="450" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="273" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t−1</tspan></text>
+<rect x="334" y="46" width="58" height="46" rx="5" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+<text x="363" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t</tspan></text>
+<rect x="334" y="245" width="58" height="46" rx="5" fill="#30453c" stroke="#a8cbb6" stroke-width="2"/>
+<text x="363" y="274" class="fcp-math">h<tspan class="fcp-sub" dy="7">t</tspan></text>
+<g class="fcp-current-input" aria-label="Current chunk f_t: clean and noisy latent">
+  <rect x="334" y="450" width="58" height="46" rx="5" fill="#d6dce4"/><path d="M363 450H387A5 5 0 0 1 392 455V491A5 5 0 0 1 387 496H363Z" fill="#a9bfd9"/>
+  <path d="M363 496 H339 A5 5 0 0 1 334 491 V455 A5 5 0 0 1 339 450 H363" fill="none" stroke="#436b95" stroke-width="3.2"/>
+  <path d="M363 450 H387 A5 5 0 0 1 392 455 V491 A5 5 0 0 1 387 496 H363" fill="none" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+</g>
+<text x="363" y="479" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t</tspan></text>
+<rect x="68" y="126" width="350" height="74" rx="9" fill="#222b36" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="63" y="133" width="350" height="74" rx="9" fill="#293440" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="58" y="140" width="350" height="74" rx="9" fill="#303b48" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<text x="233.0" y="183.0" text-anchor="middle" class="fcp-block-label">Transformer blocks</text>
+<rect x="68" y="322" width="350" height="74" rx="9" fill="#222b36" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="63" y="329" width="350" height="74" rx="9" fill="#293440" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<rect x="58" y="336" width="350" height="74" rx="9" fill="#303b48" stroke="#b1bdcb" stroke-opacity=".9" stroke-width="2"/>
+<text x="233.0" y="379.0" text-anchor="middle" class="fcp-block-label">Transformer blocks</text>
+<rect x="326" y="237" width="74" height="62" rx="8" fill="none" stroke="#bddbc9" stroke-width="2.2" stroke-dasharray="5 4"/>
+
+<rect x="598" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="627" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+1</tspan></text>
+<rect x="598" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="627" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+1</tspan></text>
+<rect x="552" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="547" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="627" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="627" dy="25">blocks</tspan></text>
+<rect x="853" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="882" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+2</tspan></text>
+<rect x="853" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="882" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+2</tspan></text>
+<rect x="807" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="802" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="882" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="882" dy="25">blocks</tspan></text>
+<rect x="1108" y="46" width="58" height="46" rx="5" fill="#d6e8f7" stroke="#436b95" stroke-width="3"/>
+<text x="1137" y="75" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+3</tspan></text>
+<rect x="1108" y="245" width="58" height="46" rx="5" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+<text x="1137" y="274" class="fcp-math fcp-latent-math">f<tspan class="fcp-sub" dy="7">t+3</tspan></text>
+<rect x="1062" y="133" width="160" height="74" rx="9" fill="#233e58" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<rect x="1057" y="140" width="160" height="74" rx="9" fill="#2d4f70" stroke="#9fc6ed" stroke-opacity=".9" stroke-width="2"/>
+<text x="1137" y="169" text-anchor="middle" class="fcp-block-label">Transformer<tspan x="1137" dy="25">blocks</tspan></text>
+  <!-- Vertical lanes follow each latent center; endpoints touch exposed module edges. -->
+  <g class="fcp-main-connections" aria-label="Aligned autoregressive backbone connections">
+    <path d="M93 450V410" class="fcp-main-route"/>
+    <path d="M93 322V291" class="fcp-main-route"/>
+    <path d="M93 245V214" class="fcp-main-route"/>
+    <path d="M93 126V92" class="fcp-main-route"/>
+    <path d="M183 450V410" class="fcp-main-route"/>
+    <path d="M183 322V291" class="fcp-main-route"/>
+    <path d="M183 245V214" class="fcp-main-route"/>
+    <path d="M183 126V92" class="fcp-main-route"/>
+    <path d="M273 450V410" class="fcp-main-route"/>
+    <path d="M273 322V291" class="fcp-main-route"/>
+    <path d="M273 245V214" class="fcp-main-route"/>
+    <path d="M273 126V92" class="fcp-main-route"/>
+    <path d="M363 450V410" class="fcp-main-route"/>
+    <path d="M363 322V291" class="fcp-main-route"/>
+    <path d="M363 245V214" class="fcp-main-route"/>
+    <path d="M363 126V92" class="fcp-main-route"/>
+  </g>
+  <g class="fcp-future-connections" aria-label="Parallel future predictor connections">
+    <path d="M400 268H451Q459 268 459 276V309Q459 317 467 317H1015" class="fcp-feature-route"/>
+    <path d="M627 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M627 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M505 317V185Q505 177 513 177H547" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="505" cy="317" r="3" fill="#9fc6ed"/>
+    <path d="M882 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M882 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M760 317V185Q760 177 768 177H802" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="760" cy="317" r="3" fill="#9fc6ed"/>
+    <path d="M1137 133V92" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M1137 245V214" class="fcp-route" marker-end="url(#fcp-arrow)"/>
+    <path d="M1015 317V185Q1015 177 1023 177H1057" class="fcp-feature-route" marker-end="url(#fcp-feature-arrow)"/>
+    <circle cx="1015" cy="317" r="3" fill="#9fc6ed"/>
+  </g>
+  <g class="fcp-legend">
+<rect x="478" y="378" width="729" height="111" rx="9" fill="#181f29" stroke="#333f50"/>
+  <text x="501" y="401" class="fcp-label">NOTATION</text>
+  <rect x="501" y="412" width="34" height="23" rx="4" fill="#d6dce4" stroke="#436b95" stroke-width="3"/>
+  <text x="551" y="429" class="fcp-note">Clean latent</text>
+  <rect x="501" y="450" width="34" height="23" rx="4" fill="#a9bfd9" stroke="#436b95" stroke-width="4" stroke-dasharray="8 6"/>
+  <text x="551" y="467" class="fcp-note">Noisy latent</text>
+  <rect x="874" y="412" width="34" height="23" rx="4" fill="#30453c" stroke="#a8cbb6"/>
+  <text x="924" y="429" class="fcp-note">Hidden state</text>
+  <rect x="874" y="450" width="34" height="23" rx="4" fill="#2d4f70" stroke="#9fc6ed"/>
+  <text x="924" y="467" class="fcp-note">Unshared DiT blocks</text>
+  </g>
+</svg>
+
+        </div>
+        <figcaption><a data-media-viewer="image" href="assets/figures/fcp-overview.svg?v=20261020-clearer-latent-dashes" aria-label="View full-size architecture figure in a page overlay">View full-size figure <span aria-hidden="true">↗</span></a></figcaption>
+      </figure>
+      </div>
+    </section>
+    <section id="results" class="section results">
+      <div class="section-topline"><p class="eyebrow section-label">03 / QUANTITATIVE RESULTS</p></div>
+      <div class="controlled-results-heading"><h2><em>Better physical plausibility.</em></h2><p class="section-intro">On Wan2.2-TI2V-5B, we compare teacher forcing and FCP with matched training data and experimental settings. Future-chunk supervision improves physical plausibility under both image and video conditioning.</p></div>
+      <div class="controlled-results-toolbar">
+      <div class="iq-chart-legend controlled-shared-legend"><span><i class="iq-key-baseline" aria-hidden="true"></i>Teacher forcing</span><span><i class="iq-key-fcp" aria-hidden="true"></i>+ FCP</span></div>
+      </div>
+      <div class="controlled-results-grid">
+        <article class="controlled-card" aria-labelledby="i2v-results-title">
+          <div class="controlled-card-heading"><h3 id="i2v-results-title">Image-to-video</h3><span class="controlled-card-gain"><strong>+11.2%</strong><small>+3.4 IQ</small></span></div>
+          <p class="controlled-conditioning">Conditioned on an initial image.</p>
+          <figure class="controlled-task-figure"><svg class="iq-comparison-chart iq-task-chart" viewBox="0 60 500 285" role="img" aria-labelledby="i2v-chart-title i2v-chart-desc"><title id="i2v-chart-title">Image-to-video: teacher forcing versus teacher forcing + FCP</title><desc id="i2v-chart-desc">Teacher forcing: 30.4. Teacher forcing + FCP: 33.8. Gain: 3.4 IQ, or 11.2 percent. The IQ axis is truncated from 20 to 40.</desc><path d="M75 270H455" class="iq-gridline"/><text x="60" y="275" text-anchor="end" class="iq-axis-label">20</text><path d="M75 222.5H455" class="iq-gridline"/><text x="60" y="227.5" text-anchor="end" class="iq-axis-label">25</text><path d="M75 175H455" class="iq-gridline"/><text x="60" y="180" text-anchor="end" class="iq-axis-label">30</text><path d="M75 127.5H455" class="iq-gridline"/><text x="60" y="132.5" text-anchor="end" class="iq-axis-label">35</text><path d="M75 80H455" class="iq-gridline"/><text x="60" y="85" text-anchor="end" class="iq-axis-label">40</text><rect x="145" y="171.20" width="76" height="98.80" rx="5" class="iq-bar iq-bar-baseline"/><text x="183" y="159.20" text-anchor="middle" class="iq-value iq-value-baseline">30.4</text><text x="183" y="298" text-anchor="middle" class="iq-bar-label">Teacher forcing</text><rect x="285" y="138.90" width="76" height="131.10" rx="5" class="iq-bar iq-bar-fcp"/><text x="323" y="126.90" text-anchor="middle" class="iq-value iq-value-fcp">33.8</text><text x="323" y="298" text-anchor="middle" class="iq-bar-label iq-bar-label-ours">+ FCP</text><text x="250" y="332" text-anchor="middle" class="iq-axis-label">IQ ↑</text><g class="iq-improvement iq-improvement-tapered" aria-hidden="true"><path class="iq-improvement-ribbon" fill="url(#i2v-lift-gradient)" d="M225.09 167.69L227.42 167.57L229.81 167.27L232.27 166.82L234.78 166.22L237.34 165.48L239.96 164.61L242.62 163.59L245.34 162.44L248.10 161.15L250.91 159.73L253.77 158.17L256.67 156.48L259.61 154.65L262.60 152.69L265.63 150.60L268.71 148.38L271.21 151.38L280.00 131.90L260.30 138.33L262.81 141.32L260.16 143.79L257.55 146.14L254.99 148.37L252.46 150.47L249.98 152.46L247.53 154.33L245.12 156.08L242.75 157.71L240.41 159.22L238.11 160.62L235.84 161.91L233.60 163.08L231.39 164.14L229.21 165.09L227.05 165.93L224.91 166.71Z"/></g><defs><linearGradient id="i2v-lift-gradient" gradientUnits="userSpaceOnUse" x1="225" y1="167.20" x2="280" y2="131.90"><stop offset="0" stop-color="#6fa8ff" stop-opacity=".45"/><stop offset=".6" stop-color="#94c1ff"/><stop offset="1" stop-color="#d0e6ff"/></linearGradient></defs></svg></figure>
+          <div class="controlled-table-scroll" tabindex="0" role="region" aria-label="Image-to-video numerical results; scroll horizontally on narrow screens">
+            <table><caption class="visually-hidden">Image-to-video: selected controlled 5B results from Table 2. All metrics are higher is better.</caption><thead><tr><th scope="col">Training method</th><th scope="col">IQ ↑</th><th scope="col">SP ↑</th><th scope="col">ST ↑</th><th scope="col">WS ↑</th></tr></thead><tbody><tr><th scope="row">Teacher forcing</th><td>30.4</td><td>34.8</td><td>32.8</td><td>24.0</td></tr><tr class="our-result"><th scope="row">+ FCP</th><td>33.8</td><td>36.8</td><td>41.1</td><td>25.2</td></tr></tbody></table>
+          </div>
+        </article>
+        <article class="controlled-card" aria-labelledby="v2v-results-title">
+          <div class="controlled-card-heading"><h3 id="v2v-results-title">Video-to-video</h3><span class="controlled-card-gain"><strong>+9.4%</strong><small>+3.8 IQ</small></span></div>
+          <p class="controlled-conditioning">Conditioned on a preceding video clip.</p>
+          <figure class="controlled-task-figure"><svg class="iq-comparison-chart iq-task-chart" viewBox="0 60 500 285" role="img" aria-labelledby="v2v-chart-title v2v-chart-desc"><title id="v2v-chart-title">Video-to-video: teacher forcing versus teacher forcing + FCP</title><desc id="v2v-chart-desc">Teacher forcing: 40.6. Teacher forcing + FCP: 44.4. Gain: 3.8 IQ, or 9.4 percent. The IQ axis is truncated from 30 to 50.</desc><path d="M75 270H455" class="iq-gridline"/><text x="60" y="275" text-anchor="end" class="iq-axis-label">30</text><path d="M75 222.5H455" class="iq-gridline"/><text x="60" y="227.5" text-anchor="end" class="iq-axis-label">35</text><path d="M75 175H455" class="iq-gridline"/><text x="60" y="180" text-anchor="end" class="iq-axis-label">40</text><path d="M75 127.5H455" class="iq-gridline"/><text x="60" y="132.5" text-anchor="end" class="iq-axis-label">45</text><path d="M75 80H455" class="iq-gridline"/><text x="60" y="85" text-anchor="end" class="iq-axis-label">50</text><rect x="145" y="169.30" width="76" height="100.70" rx="5" class="iq-bar iq-bar-baseline"/><text x="183" y="157.30" text-anchor="middle" class="iq-value iq-value-baseline">40.6</text><text x="183" y="298" text-anchor="middle" class="iq-bar-label">Teacher forcing</text><rect x="285" y="133.20" width="76" height="136.80" rx="5" class="iq-bar iq-bar-fcp"/><text x="323" y="121.20" text-anchor="middle" class="iq-value iq-value-fcp">44.4</text><text x="323" y="298" text-anchor="middle" class="iq-bar-label iq-bar-label-ours">+ FCP</text><text x="250" y="332" text-anchor="middle" class="iq-axis-label">IQ ↑</text><g class="iq-improvement iq-improvement-tapered" aria-hidden="true"><path class="iq-improvement-ribbon" fill="url(#v2v-lift-gradient)" d="M225.09 165.79L227.43 165.66L229.83 165.33L232.29 164.83L234.82 164.16L237.39 163.34L240.03 162.36L242.71 161.22L245.44 159.92L248.22 158.47L251.04 156.86L253.91 155.11L256.82 153.20L259.77 151.14L262.77 148.93L265.81 146.57L268.90 144.06L271.56 146.91L280.00 126.20L259.96 134.49L262.62 137.34L259.98 140.07L257.38 142.65L254.83 145.10L252.31 147.42L249.84 149.59L247.41 151.63L245.01 153.53L242.65 155.30L240.33 156.94L238.04 158.44L235.78 159.81L233.56 161.05L231.36 162.17L229.19 163.16L227.04 164.03L224.91 164.81Z"/></g><defs><linearGradient id="v2v-lift-gradient" gradientUnits="userSpaceOnUse" x1="225" y1="165.30" x2="280" y2="126.20"><stop offset="0" stop-color="#6fa8ff" stop-opacity=".45"/><stop offset=".6" stop-color="#94c1ff"/><stop offset="1" stop-color="#d0e6ff"/></linearGradient></defs></svg></figure>
+          <div class="controlled-table-scroll" tabindex="0" role="region" aria-label="Video-to-video numerical results; scroll horizontally on narrow screens">
+            <table><caption class="visually-hidden">Video-to-video: selected controlled 5B results from Table 2. All metrics are higher is better.</caption><thead><tr><th scope="col">Training method</th><th scope="col">IQ ↑</th><th scope="col">SP ↑</th><th scope="col">ST ↑</th><th scope="col">WS ↑</th></tr></thead><tbody><tr><th scope="row">Teacher forcing</th><td>40.6</td><td>48.5</td><td>40.8</td><td>37.8</td></tr><tr class="our-result"><th scope="row">+ FCP</th><td>44.4</td><td>51.1</td><td>47.2</td><td>40.7</td></tr></tbody></table>
+          </div>
+        </article>
+      </div>
+      <p class="controlled-results-note">Controlled comparison from Table 2.</p>
+
+      <div id="training-compute" class="training-compute" aria-labelledby="training-compute-title">
+        <div class="training-efficiency-copy">
+          <h3 id="training-compute-title"><em>Efficient training.</em></h3>
+          <p class="benchmark-intro">FCP achieves higher Physics-IQ scores than teacher forcing at comparable training compute or matched data exposure.</p>
+          <p class="benchmark-intro">These gains are not simply due to additional computation and suggest the potential for efficient scaling of autoregressive video training.</p>
+          <div class="training-efficiency-summary" aria-label="Equal-IQ training efficiency gains">
+            <div><strong>57.9%</strong><span>less compute</span></div>
+            <div><strong>63.4%</strong><span>less data</span></div>
+          </div>
+          <p class="training-efficiency-summary-note">At IQ 26.978, relative to the TF fit.</p>
+        </div>
+        <div id="training-efficiency-visual" class="training-efficiency-visual">
+          <div class="training-budget-selector" role="group" aria-label="Compare efficiency by training budget">
+            <button type="button" data-training-budget="compute" aria-pressed="true">Compute</button>
+            <button type="button" data-training-budget="data" aria-pressed="false">Data</button>
+            <button class="media-expand-button" type="button" data-viewer-target="#training-efficiency-visual" data-viewer-kind="chart" data-viewer-title="Training efficiency" aria-label="Open training efficiency chart in a full-page overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg><span>Full screen</span></button>
+          </div>
+          <figure class="training-compute-figure">
+            <div id="convergence-chart-host" class="convergence-chart-host"><svg class="convergence-chart" role="img" aria-labelledby="convergence-native-title convergence-native-description"></svg></div>
+            <div class="convergence-legend" aria-label="Chart legend"><span><i class="convergence-key-tf" aria-hidden="true"></i>Teacher forcing</span><span><i class="convergence-key-fcp" aria-hidden="true"></i>+ FCP</span><span><i class="convergence-key-fit" aria-hidden="true"></i>Fit</span></div>
+            <noscript><img src="assets/figures/compute-convergence.svg" width="1020" height="390" alt="Physics-IQ versus training FLOPs: Teacher forcing and FCP."></noscript>
+          </figure>
+          <script id="convergence-chart-data" type="application/json">{"model":"Wan2.1-1.3B","compute_method":"Analytical major-matmul FLOPs estimate; multiply-add=2 FLOPs","x":"Cumulative estimated training FLOPs","y":"Physics-IQ mean","series":[{"method":"TF baseline","label":"Teacher forcing","estimated_flops_per_global_step":10256956740599808,"points":[{"step":5000,"training_flops":51284783702999040000,"iq":25.359,"sample_presentations":40000},{"step":7500,"training_flops":76927175554498560000,"iq":25.486,"sample_presentations":60000},{"step":10000,"training_flops":102569567405998080000,"iq":26.436,"sample_presentations":80000},{"step":12500,"training_flops":128211959257497600000,"iq":27.848,"sample_presentations":100000},{"step":15000,"training_flops":153854351108997120000,"iq":25.879,"sample_presentations":120000},{"step":17500,"training_flops":179496742960496640000,"iq":27.891,"sample_presentations":140000},{"step":20000,"training_flops":205139134811996160000,"iq":27.554,"sample_presentations":160000}],"fit_parameters":{"intercept":25.223460638405186,"gain":2.3658457140244877,"tau_over_span":0.6906105129522777,"x_min_1e20_flops":0.5128478370299904,"x_max_1e20_flops":2.0513913481199615,"sum_squared_error":3.080249446143549}},{"method":"Ours","label":"+ FCP","estimated_flops_per_global_step":11802303170347008,"points":[{"step":5000,"training_flops":59011515851735040000,"iq":26.978,"sample_presentations":40000},{"step":7500,"training_flops":88517273777602560000,"iq":28.211,"sample_presentations":60000},{"step":10000,"training_flops":118023031703470080000,"iq":30.004,"sample_presentations":80000},{"step":12500,"training_flops":147528789629337600000,"iq":30.351,"sample_presentations":100000},{"step":15000,"training_flops":177034547555205120000,"iq":29.557,"sample_presentations":120000},{"step":17500,"training_flops":206540305481072640000,"iq":30.372,"sample_presentations":140000},{"step":20000,"training_flops":236046063406940160000,"iq":30.89,"sample_presentations":160000}],"fit_parameters":{"intercept":26.901811914239296,"gain":3.6419354956462597,"tau_over_span":0.27664407551765413,"x_min_1e20_flops":0.5901151585173504,"x_max_1e20_flops":2.3604606340694017,"sum_squared_error":1.1802119986923867}}],"global_batch_size":8,"color_depth":"Light to dark encodes cumulative sample presentations (including repeats), 40000 to 160000","fit_model":"Monotone exponential saturation, unweighted least squares; measured domain only"}</script>
+        </div>
+      </div>
+
+      <div id="additional-benchmarks" class="additional-benchmarks" aria-labelledby="additional-benchmarks-title">
+        <h3 id="additional-benchmarks-title"><em>Across physics-related benchmarks.</em></h3>
+        <p class="benchmark-intro">FCP delivers consistent gains across WorldModelBench, PAI-Bench-G, and PhyGround, extending the improvements beyond Physics-IQ. All comparisons use Wan2.2-TI2V-5B with matched training settings.</p>
+        <div class="iq-chart-legend physics-summary-legend" aria-label="Score comparison order"><span><i class="iq-key-baseline" aria-hidden="true"></i>Teacher forcing</span><span><i class="iq-key-fcp" aria-hidden="true"></i>+ FCP</span></div>
+        <div class="physics-summary-grid"><article class="physics-summary-card"><div class="physics-card-heading"><h3>WorldModelBench</h3><p class="physics-metric">Total ↑</p></div><div class="physics-score"><span>7.22</span><span class="physics-score-arrow">→</span><strong>7.64</strong></div><details><summary>View all metrics</summary><table><caption>WorldModelBench · all metrics ↑</caption><thead><tr><th scope="col">Metric</th><th scope="col">Teacher forcing</th><th scope="col">+ FCP</th></tr></thead><tbody><tr><th scope="row">Instruction</th><td>1.77</td><td>1.81</td></tr><tr><th scope="row">Physical Laws</th><td>4.28</td><td>4.47</td></tr><tr><th scope="row">Common Sense</th><td>1.17</td><td>1.36</td></tr><tr class="physics-core"><th scope="row">Total</th><td>7.22</td><td>7.64</td></tr></tbody></table></details></article><article class="physics-summary-card"><div class="physics-card-heading"><h3>PAI-Bench-G</h3><p class="physics-metric">Domain Score ↑</p></div><div class="physics-score"><span>81.13</span><span class="physics-score-arrow">→</span><strong>82.38</strong></div><details><summary>View all metrics</summary><table><caption>PAI-Bench-G · all metrics ↑</caption><thead><tr><th scope="col">Metric</th><th scope="col">Teacher forcing</th><th scope="col">+ FCP</th></tr></thead><tbody><tr><th scope="row">AV</th><td>63.54</td><td>64.81</td></tr><tr><th scope="row">Common Sense</th><td>90.90</td><td>92.10</td></tr><tr><th scope="row">Human</th><td>81.62</td><td>82.46</td></tr><tr><th scope="row">Industry</th><td>85.65</td><td>87.24</td></tr><tr><th scope="row">Physics</th><td>90.09</td><td>90.29</td></tr><tr><th scope="row">Robot</th><td>70.56</td><td>72.95</td></tr><tr class="physics-core"><th scope="row">Domain Score</th><td>81.13</td><td>82.38</td></tr></tbody></table></details></article><article class="physics-summary-card"><div class="physics-card-heading"><h3>PhyGround</h3><p class="physics-metric">Physics ↑</p></div><div class="physics-score"><span>2.75</span><span class="physics-score-arrow">→</span><strong>2.80</strong></div><details><summary>View all metrics</summary><table><caption>PhyGround · all metrics ↑</caption><thead><tr><th scope="col">Metric</th><th scope="col">Teacher forcing</th><th scope="col">+ FCP</th></tr></thead><tbody><tr><th scope="row">General</th><td>2.63</td><td>2.66</td></tr><tr class="physics-core"><th scope="row">Physics</th><td>2.75</td><td>2.80</td></tr></tbody></table></details></article></div>
+        <p class="benchmark-protocol">Official evaluation code and metrics · mean over seeds 42–45 · 5-second videos at 24 FPS.</p>
+
+      </div>
+    </section>
+    <section id="showcase" class="section showcase">
+      <div class="section-topline"><p class="eyebrow section-label">04 / VIDEO SHOWCASE</p><span class="small-note">Same scene. Different training. · V2V continuation · 1s input → 4s generated</span></div>
+      <h2><em>Let physics unfold.</em></h2>
+      <div class="showcase-viewer">
+        <div id="showcase-player" class="showcase-main">
+        <div class="showcase-case-intro"><p id="showcase-observation" class="showcase-observation">Follow the wave of falling dominoes as it travels across the pattern.</p><span class="showcase-case-count" aria-live="polite">CASE 01 / 16</span></div>
+        <div class="showcase-pair">
+          <div class="showcase-labels"><span>Teacher forcing · TF</span><span>Ours · FCP</span></div>
+          <video class="showcase-video" aria-describedby="showcase-observation" controls muted playsinline preload="metadata" poster="assets/showcase/r13-00064-42.jpg" src="assets/showcase/r13-00064-42.mp4" aria-label="Domino chain reaction: Teacher forcing on the left, Ours on the right">Your browser does not support HTML5 video. <a href="assets/showcase/r13-00064-42.mp4">Open TF and Ours comparison</a>.</video>
+        </div>
+        <div class="showcase-controls" hidden>
+          <button class="showcase-play" type="button" aria-label="Play TF and Ours together">Play</button>
+          <button class="showcase-replay" type="button" aria-label="Replay TF and Ours together">↺</button>
+          <input class="showcase-progress" type="range" min="0" max="5" step="0.01" value="0" aria-label="TF and Ours playback position">
+          <span class="showcase-time">0.0 / 5.0s</span>
+          <button class="media-expand-button" type="button" data-viewer-target="#showcase-player" data-viewer-kind="video" data-viewer-title="Teacher forcing / FCP video comparison" aria-label="Open video comparison in a full-page overlay"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></svg></button>
+        </div>
+        <p class="showcase-error" role="alert" hidden>Video could not be loaded. Select another example or reload the page.</p>
+        </div>
+        <aside class="showcase-sidebar" aria-label="Browse demo examples">
+        <div class="showcase-browser">
+          <button class="showcase-page-button showcase-previous" type="button" aria-label="Previous examples" disabled>‹</button>
+          <div class="showcase-thumbnails" role="group" aria-label="Select comparison example"></div>
+          <button class="showcase-page-button showcase-next" type="button" aria-label="Next examples">›</button>
+        </div>
+        <p class="showcase-page-count" aria-live="polite"></p>
+        </aside>
+        <noscript><p>Enable JavaScript to browse all comparison examples.</p></noscript>
+      </div>
+      <script id="showcase-data" type="application/json">[
+  {
+    "key": "r13-00064-42",
+    "title": "Domino chain reaction",
+    "video": "assets/showcase/r13-00064-42.mp4",
+    "poster": "assets/showcase/r13-00064-42.jpg",
+    "thumbnail": "assets/showcase/r13-00064-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Follow the wave of falling dominoes as it travels across the pattern."
+  },
+  {
+    "key": "r07-00446-42",
+    "title": "Pouring tea",
+    "video": "assets/showcase/r07-00446-42.mp4",
+    "poster": "assets/showcase/r07-00446-42.jpg",
+    "thumbnail": "assets/showcase/r07-00446-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Follow the stream into the correct container and watch the liquid level rise."
+  },
+  {
+    "key": "r02-00059-42",
+    "title": "Droplet impact",
+    "video": "assets/showcase/r02-00059-42.mp4",
+    "poster": "assets/showcase/r02-00059-42.jpg",
+    "thumbnail": "assets/showcase/r02-00059-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the impact cavity collapse and form an upward Worthington jet."
+  },
+  {
+    "key": "r01-00366-42",
+    "title": "Melting ice pop",
+    "video": "assets/showcase/r01-00366-42.mp4",
+    "poster": "assets/showcase/r01-00366-42.jpg",
+    "thumbnail": "assets/showcase/r01-00366-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the ice pop shrink as the melted liquid spreads around it."
+  },
+  {
+    "key": "r00-00156-42",
+    "title": "Pouring a smoothie",
+    "video": "assets/showcase/r00-00156-42.mp4",
+    "poster": "assets/showcase/r00-00156-42.jpg",
+    "thumbnail": "assets/showcase/r00-00156-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the liquid pour into the correct glass as its level rises naturally."
+  },
+  {
+    "key": "r05-00175-42",
+    "title": "Tomato impact",
+    "video": "assets/showcase/r05-00175-42.mp4",
+    "poster": "assets/showcase/r05-00175-42.jpg",
+    "thumbnail": "assets/showcase/r05-00175-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the glass shatter and track the ball’s speed in slow motion."
+  },
+  {
+    "key": "r14-00491-42",
+    "title": "Snoopy dominoes",
+    "video": "assets/showcase/r14-00491-42.mp4",
+    "poster": "assets/showcase/r14-00491-42.jpg",
+    "thumbnail": "assets/showcase/r14-00491-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Track the wave of falling dominoes as it reaches the character pattern."
+  },
+  {
+    "key": "r12-00403-42",
+    "title": "Dandelion seeds",
+    "video": "assets/showcase/r12-00403-42.mp4",
+    "poster": "assets/showcase/r12-00403-42.jpg",
+    "thumbnail": "assets/showcase/r12-00403-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the flame spread through the dandelion seed head."
+  },
+  {
+    "key": "r09-00016-42",
+    "title": "Shell under pressure",
+    "video": "assets/showcase/r09-00016-42.mp4",
+    "poster": "assets/showcase/r09-00016-42.jpg",
+    "thumbnail": "assets/showcase/r09-00016-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch where the shell fractures as the press descends."
+  },
+  {
+    "key": "r15-00370-42",
+    "title": "Paper in motion",
+    "video": "assets/showcase/r15-00370-42.mp4",
+    "poster": "assets/showcase/r15-00370-42.jpg",
+    "thumbnail": "assets/showcase/r15-00370-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Follow the burning edge as the flame advances across the paper."
+  },
+  {
+    "key": "r06-00212-42",
+    "title": "Inflatable rocket",
+    "video": "assets/showcase/r06-00212-42.mp4",
+    "poster": "assets/showcase/r06-00212-42.jpg",
+    "thumbnail": "assets/showcase/r06-00212-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch how pressure from the heavy object redistributes air within the inflatable body, changing its shape."
+  },
+  {
+    "key": "r14-00062-42",
+    "title": "Character dominoes",
+    "video": "assets/showcase/r14-00062-42.mp4",
+    "poster": "assets/showcase/r14-00062-42.jpg",
+    "thumbnail": "assets/showcase/r14-00062-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the dominoes topple through successive collisions, without unexplained collapses."
+  },
+  {
+    "key": "r15-00301-42",
+    "title": "Melting butter",
+    "video": "assets/showcase/r15-00301-42.mp4",
+    "poster": "assets/showcase/r15-00301-42.jpg",
+    "thumbnail": "assets/showcase/r15-00301-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the butter soften as a pool of melted butter spreads around it."
+  },
+  {
+    "key": "r10-00282-42",
+    "title": "Pouring beer",
+    "video": "assets/showcase/r10-00282-42.mp4",
+    "poster": "assets/showcase/r10-00282-42.jpg",
+    "thumbnail": "assets/showcase/r10-00282-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Follow the stream into the mug and watch the beer level rise."
+  },
+  {
+    "key": "r11-00287-42",
+    "title": "Steel target",
+    "video": "assets/showcase/r11-00287-42.mp4",
+    "poster": "assets/showcase/r11-00287-42.jpg",
+    "thumbnail": "assets/showcase/r11-00287-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the impact on the steel target and the debris spreading outward."
+  },
+  {
+    "key": "r09-00352-42",
+    "title": "Metal under pressure",
+    "video": "assets/showcase/r09-00352-42.mp4",
+    "poster": "assets/showcase/r09-00352-42.jpg",
+    "thumbnail": "assets/showcase/r09-00352-42-thumb.jpg",
+    "dataset": "WISA",
+    "observation": "Watch the metal buckle and flatten between the descending press plates."
+  }
+]</script>
+    </section>
+    <section id="representation" class="section representation">
+      <p class="eyebrow section-label">05 / INSIDE THE REPRESENTATIONS</p>
+      <h2>What kind of representation space <em>does the model learn?</em></h2>
+      <div class="representation-guide">
+        <p class="section-intro">Compare feature similarity for the <span class="representation-query-reference">selected query <span class="representation-query-key" role="img" aria-label="red outlined box marking the query token"><span class="representation-query-box" aria-hidden="true"></span></span></span> within a frame (Spatial) or across frames (SpatioTemporal). Spatial compares TF and FCP; SpatioTemporal shows FCP across time. Each query uses a shared color scale. These visualizations suggest that FCP learns more selective, structured, and semantically meaningful representations.</p>
+      </div>
+      <div class="figure-selector" role="group" aria-label="Select representation view">
+        <button class="figure-button active" type="button" data-representation="spatial" aria-pressed="true">Spatial</button>
+        <button class="figure-button" type="button" data-representation="temporal" aria-pressed="false">SpatioTemporal</button>
+      </div>
+      <div id="representation-spatial" class="representation-panel">
+        <div class="representation-controls representation-selector-row"><div class="spatial-scene-selector" role="group" aria-label="Select spatial scene"><button type="button" data-spatial-scene="pasta" aria-pressed="true">Pasta</button><button type="button" data-spatial-scene="blocks" aria-pressed="false">Blocks</button><button type="button" data-spatial-scene="almonds" aria-pressed="false">Almonds</button><button type="button" data-spatial-scene="fries" aria-pressed="false">French fries</button><button type="button" data-spatial-scene="collision" aria-pressed="false">Ball collision</button></div><div id="representation-query-controls" class="representation-queries" role="group" aria-label="Select query token" hidden></div></div>
+        <div class="representation-frame-grid"><figure><figcaption>Video frame</figcaption><a data-media-viewer="image" id="representation-reference" href="assets/representation/pasta-q1-reference.png" aria-label="Open Video frame with selected query token at original resolution"><img src="assets/representation/pasta-q1-reference.png" alt="Video frame with selected query token" loading="lazy" width="768" height="432"></a></figure><figure><figcaption>Teacher forcing</figcaption><a data-media-viewer="image" id="representation-tf" href="assets/representation/pasta-q1-tf.png" aria-label="Open Teacher forcing query-to-token similarity map at original resolution"><img src="assets/representation/pasta-q1-tf.png" alt="Teacher forcing query-to-token similarity map" loading="lazy" width="768" height="432"></a></figure><figure><figcaption>+ FCP</figcaption><a data-media-viewer="image" id="representation-fcp" href="assets/representation/pasta-q1-fcp.png" aria-label="Open FCP query-to-token similarity map at original resolution"><img src="assets/representation/pasta-q1-fcp.png" alt="FCP query-to-token similarity map" loading="lazy" width="768" height="432"></a></figure></div>
+        <div class="representation-scale"><span>Cosine similarity</span><div><div class="representation-colorbar" aria-hidden="true"></div><div class="representation-scale-values"><span id="representation-scale-min">0.1823</span><span id="representation-scale-max">0.7623</span></div></div></div>
+      </div>
+      <div id="representation-temporal" class="representation-panel" hidden>
+        <div class="representation-controls representation-selector-row"><div class="temporal-scene-selector" role="group" aria-label="Select temporal scene"><button type="button" data-temporal-scene="traffic" aria-pressed="true">Traffic</button><button type="button" data-temporal-scene="windsurfing" aria-pressed="false">Windsurfing</button><button type="button" data-temporal-scene="motocross" aria-pressed="false">Motorcyclist</button></div><div id="temporal-query-controls" class="representation-queries" role="group" aria-label="Select fixed temporal query"><button type="button" aria-pressed="true">Query 1</button><button type="button" aria-pressed="false">Query 2</button></div></div>
+        <div class="temporal-scroll" tabindex="0" role="region" aria-label="Cross-frame feature comparison; scroll horizontally on narrow screens"><div id="temporal-grid" class="temporal-grid"><span class="temporal-corner" aria-hidden="true"></span><p class="temporal-frame-heading">Frame 11</p><p class="temporal-frame-heading">Frame 23</p><p class="temporal-frame-heading">Frame 47</p><p class="temporal-frame-heading">Frame 83 · query</p><p class="temporal-row-label">Video frame</p><a data-media-viewer="image" href="assets/representation/traffic-q1-l03-reference.png" aria-label="Open Traffic: Video frame, frame 11, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l03-reference.png" alt="Traffic: Video frame, frame 11, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l06-reference.png" aria-label="Open Traffic: Video frame, frame 23, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l06-reference.png" alt="Traffic: Video frame, frame 23, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l12-reference.png" aria-label="Open Traffic: Video frame, frame 47, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l12-reference.png" alt="Traffic: Video frame, frame 47, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l21-reference.png" aria-label="Open Traffic: Video frame, frame 83, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l21-reference.png" alt="Traffic: Video frame, frame 83, fixed query 1" width="768" height="432" loading="lazy"></a><p class="temporal-row-label">+ FCP</p><a data-media-viewer="image" href="assets/representation/traffic-q1-l03-fcp.png" aria-label="Open Traffic: + FCP, frame 11, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l03-fcp.png" alt="Traffic: + FCP, frame 11, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l06-fcp.png" aria-label="Open Traffic: + FCP, frame 23, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l06-fcp.png" alt="Traffic: + FCP, frame 23, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l12-fcp.png" aria-label="Open Traffic: + FCP, frame 47, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l12-fcp.png" alt="Traffic: + FCP, frame 47, fixed query 1" width="768" height="432" loading="lazy"></a><a data-media-viewer="image" href="assets/representation/traffic-q1-l21-fcp.png" aria-label="Open Traffic: + FCP, frame 83, fixed query 1 at original resolution"><img src="assets/representation/traffic-q1-l21-fcp.png" alt="Traffic: + FCP, frame 83, fixed query 1" width="768" height="432" loading="lazy"></a></div></div>
+        <div class="representation-scale"><span>Cosine similarity</span><div><div class="representation-colorbar" aria-hidden="true"></div><div class="representation-scale-values"><span id="temporal-scale-min">0.3385</span><span id="temporal-scale-max">0.7066</span></div></div></div>
+        <p class="representation-protocol">Fixed query · clean input frames · shared color scale across time within each query · click any image to enlarge.</p>
+      </div>
+      <script id="representation-data" type="application/json">{"spatial":{"pasta":{"title":"Pasta shells","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[11,34],"frame":59,"layer":26,"range":[0.18231350362300874,0.7623034721612931],"assets":{"reference":"assets/representation/pasta-q1-reference.png","tf":"assets/representation/pasta-q1-tf.png","fcp":"assets/representation/pasta-q1-fcp.png"}},{"label":"Query 2","query":[14,43],"frame":59,"layer":26,"range":[0.1041583064943552,0.7753456848859788],"assets":{"reference":"assets/representation/pasta-q2-reference.png","tf":"assets/representation/pasta-q2-tf.png","fcp":"assets/representation/pasta-q2-fcp.png"}},{"label":"Query 3","query":[10,21],"frame":59,"layer":26,"range":[0.2171721625328064,0.8004158854484559],"assets":{"reference":"assets/representation/pasta-q3-r10-c21-reference.png","tf":"assets/representation/pasta-q3-r10-c21-tf.png","fcp":"assets/representation/pasta-q3-r10-c21-fcp.png"}}]},"blocks":{"title":"Stacked blocks","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[11,18],"frame":107,"layer":26,"range":[0.09330089837312698,0.7501152843236925],"assets":{"reference":"assets/representation/blocks-q1-reference.png","tf":"assets/representation/blocks-q1-tf.png","fcp":"assets/representation/blocks-q1-fcp.png"}},{"label":"Query 2","query":[15,18],"frame":107,"layer":26,"range":[0.2360912624001503,0.8386496722698211],"assets":{"reference":"assets/representation/blocks-q2-reference.png","tf":"assets/representation/blocks-q2-tf.png","fcp":"assets/representation/blocks-q2-fcp.png"}},{"label":"Query 3","query":[16,23],"frame":107,"layer":26,"range":[0.16715650409460067,0.789790370464325],"assets":{"reference":"assets/representation/blocks-q3-reference.png","tf":"assets/representation/blocks-q3-tf.png","fcp":"assets/representation/blocks-q3-fcp.png"}}]},"almonds":{"title":"Almonds","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[4,23],"frame":59,"layer":26,"range":[0.20515773460268974,0.7751621913909912],"assets":{"reference":"assets/representation/almonds-q1-reference.png","tf":"assets/representation/almonds-q1-tf.png","fcp":"assets/representation/almonds-q1-fcp.png"}},{"label":"Query 2","query":[13,4],"frame":59,"layer":26,"range":[0.17636307299137116,0.8178752464056016],"assets":{"reference":"assets/representation/almonds-q2-reference.png","tf":"assets/representation/almonds-q2-tf.png","fcp":"assets/representation/almonds-q2-fcp.png"}},{"label":"Query 3","query":[20,22],"frame":59,"layer":26,"range":[0.19409632176160813,0.8732706725597381],"assets":{"reference":"assets/representation/almonds-q3-r20-c22-reference.png","tf":"assets/representation/almonds-q3-r20-c22-tf.png","fcp":"assets/representation/almonds-q3-r20-c22-fcp.png"}}]},"fries":{"title":"French fries","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[11,34],"frame":83,"layer":26,"range":[-0.01741269711405039,0.8537751489877701],"assets":{"reference":"assets/representation/fries-q1-reference.png","tf":"assets/representation/fries-q1-tf.png","fcp":"assets/representation/fries-q1-fcp.png"}},{"label":"Query 2","query":[18,41],"frame":83,"layer":26,"range":[-0.014946205671876663,0.8615070134401321],"assets":{"reference":"assets/representation/fries-q2-reference.png","tf":"assets/representation/fries-q2-tf.png","fcp":"assets/representation/fries-q2-fcp.png"}},{"label":"Query 3","query":[4,21],"frame":83,"layer":26,"range":[0.011632341332733631,0.8046829897165299],"assets":{"reference":"assets/representation/fries-q3-r04-c21-reference.png","tf":"assets/representation/fries-q3-r04-c21-tf.png","fcp":"assets/representation/fries-q3-r04-c21-fcp.png"}}]},"collision":{"title":"Ball collision","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[8,21],"frame":35,"layer":20,"range":[0.44376858592033386,0.7657362890243531],"assets":{"reference":"assets/representation/collision-q1-reference.png","tf":"assets/representation/collision-q1-tf.png","fcp":"assets/representation/collision-q1-fcp.png"}},{"label":"Query 2","query":[7,34],"frame":35,"layer":20,"range":[0.439671770632267,0.8282711416482925],"assets":{"reference":"assets/representation/collision-q2-reference.png","tf":"assets/representation/collision-q2-tf.png","fcp":"assets/representation/collision-q2-fcp.png"}}]}},"temporal":{"scenes":{"traffic":{"title":"Traffic at an intersection","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[9,30],"layer":20,"anchor_latent":21,"anchor_rgb_frame":83,"range":[0.33851443767547607,0.7066140359640122],"fps":16,"frames":[{"latent":3,"assets":{"reference":"assets/representation/traffic-q1-l03-reference.png","tf":"assets/representation/traffic-q1-l03-tf.png","fcp":"assets/representation/traffic-q1-l03-fcp.png"},"rgb_frame":11},{"latent":6,"assets":{"reference":"assets/representation/traffic-q1-l06-reference.png","tf":"assets/representation/traffic-q1-l06-tf.png","fcp":"assets/representation/traffic-q1-l06-fcp.png"},"rgb_frame":23},{"latent":12,"assets":{"reference":"assets/representation/traffic-q1-l12-reference.png","tf":"assets/representation/traffic-q1-l12-tf.png","fcp":"assets/representation/traffic-q1-l12-fcp.png"},"rgb_frame":47},{"latent":21,"assets":{"reference":"assets/representation/traffic-q1-l21-reference.png","tf":"assets/representation/traffic-q1-l21-tf.png","fcp":"assets/representation/traffic-q1-l21-fcp.png"},"rgb_frame":83}]},{"label":"Query 2","query":[14,30],"layer":20,"anchor_latent":21,"anchor_rgb_frame":83,"range":[0.33336859464645385,0.7236443167924881],"fps":16,"frames":[{"latent":3,"assets":{"reference":"assets/representation/traffic-q2-l03-reference.png","tf":"assets/representation/traffic-q2-l03-tf.png","fcp":"assets/representation/traffic-q2-l03-fcp.png"},"rgb_frame":11},{"latent":9,"assets":{"reference":"assets/representation/traffic-q2-l09-reference.png","tf":"assets/representation/traffic-q2-l09-tf.png","fcp":"assets/representation/traffic-q2-l09-fcp.png"},"rgb_frame":35},{"latent":15,"assets":{"reference":"assets/representation/traffic-q2-l15-reference.png","tf":"assets/representation/traffic-q2-l15-tf.png","fcp":"assets/representation/traffic-q2-l15-fcp.png"},"rgb_frame":59},{"latent":21,"assets":{"reference":"assets/representation/traffic-q2-l21-reference.png","tf":"assets/representation/traffic-q2-l21-tf.png","fcp":"assets/representation/traffic-q2-l21-fcp.png"},"rgb_frame":83}]}],"subject":"vehicle"},"windsurfing":{"title":"Windsurfing","subject":"sail","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[11,19],"layer":26,"anchor_latent":21,"anchor_rgb_frame":83,"range":[0.07947431348264218,0.6992084240913392],"fps":16,"frames":[{"latent":3,"assets":{"reference":"assets/representation/windsurfing-q1-l03-reference.png","tf":"assets/representation/windsurfing-q1-l03-tf.png","fcp":"assets/representation/windsurfing-q1-l03-fcp.png"},"rgb_frame":11},{"latent":6,"assets":{"reference":"assets/representation/windsurfing-q1-l06-reference.png","tf":"assets/representation/windsurfing-q1-l06-tf.png","fcp":"assets/representation/windsurfing-q1-l06-fcp.png"},"rgb_frame":23},{"latent":12,"assets":{"reference":"assets/representation/windsurfing-q1-l12-reference.png","tf":"assets/representation/windsurfing-q1-l12-tf.png","fcp":"assets/representation/windsurfing-q1-l12-fcp.png"},"rgb_frame":47},{"latent":21,"assets":{"reference":"assets/representation/windsurfing-q1-l21-reference.png","tf":"assets/representation/windsurfing-q1-l21-tf.png","fcp":"assets/representation/windsurfing-q1-l21-fcp.png"},"rgb_frame":83}]},{"label":"Query 2","query":[19,22],"layer":26,"anchor_latent":21,"anchor_rgb_frame":83,"range":[0.09023202568292618,0.6336060702800751],"fps":16,"frames":[{"latent":3,"assets":{"reference":"assets/representation/windsurfing-q2-l03-reference.png","tf":"assets/representation/windsurfing-q2-l03-tf.png","fcp":"assets/representation/windsurfing-q2-l03-fcp.png"},"rgb_frame":11},{"latent":6,"assets":{"reference":"assets/representation/windsurfing-q2-l06-reference.png","tf":"assets/representation/windsurfing-q2-l06-tf.png","fcp":"assets/representation/windsurfing-q2-l06-fcp.png"},"rgb_frame":23},{"latent":12,"assets":{"reference":"assets/representation/windsurfing-q2-l12-reference.png","tf":"assets/representation/windsurfing-q2-l12-tf.png","fcp":"assets/representation/windsurfing-q2-l12-fcp.png"},"rgb_frame":47},{"latent":21,"assets":{"reference":"assets/representation/windsurfing-q2-l21-reference.png","tf":"assets/representation/windsurfing-q2-l21-tf.png","fcp":"assets/representation/windsurfing-q2-l21-fcp.png"},"rgb_frame":83}]}]},"motocross":{"title":"Motocross rider","subject":"motorcycle rider","model":"Wan2.1-1.3B","queries":[{"label":"Query 1","query":[13,28],"layer":26,"anchor_latent":21,"anchor_rgb_frame":83,"range":[0.02819677645340562,0.6366898691654206],"fps":16,"frames":[{"latent":12,"assets":{"reference":"assets/representation/motocross-q1-l12-reference.png","fcp":"assets/representation/motocross-q1-l12-fcp.png"},"rgb_frame":47},{"latent":15,"assets":{"reference":"assets/representation/motocross-q1-l15-reference.png","fcp":"assets/representation/motocross-q1-l15-fcp.png"},"rgb_frame":59},{"latent":18,"assets":{"reference":"assets/representation/motocross-q1-l18-reference.png","fcp":"assets/representation/motocross-q1-l18-fcp.png"},"rgb_frame":71},{"latent":21,"assets":{"reference":"assets/representation/motocross-q1-l21-reference.png","fcp":"assets/representation/motocross-q1-l21-fcp.png"},"rgb_frame":83}]}]}}}}</script>
+    </section>
+    <section id="resources" class="section resources">
+      <p class="eyebrow section-label">06 / EXPLORE THE PROJECT</p><div class="resources-top"><h2>Looking ahead, <em>together.</em></h2></div>
+      <p class="resources-outlook">We will continue evaluating FCP across a broader range of benchmarks to assess whether models learn to capture more diverse forms of visual evolution, while exploring new applications. We welcome your ideas and perspectives. Please feel free to get in touch.</p>
+      <div class="resource-layout">
+        <div class="resource-list"><div><span class="resource-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h6"/></svg></span><h3>Read the paper</h3><p>Full method and experimental evaluation</p><span class="coming-soon">Coming soon</span></div><div><span class="resource-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m7 7-5 5 5 5m10-10 5 5-5 5m-4-13-2 20"/></svg></span><h3>Explore the code</h3><p>Training and inference implementation</p><span class="coming-soon">Coming soon</span></div><div><span class="resource-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 3 9 5v8l-9 5-9-5V8zM3 8l9 5 9-5M12 13v8M7.5 5.5l9 5"/></svg></span><h3>Model weights</h3><p>1.3B and 5B TI2V configurations</p><span class="coming-soon">Coming soon</span></div><div class="resource-contact"><span class="resource-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 6 9 7 9-7"/></svg></span><h3>Email us</h3><p class="resource-emails"><a href="mailto:ruopenggao@gmail.com">ruopenggao@gmail.com</a><a href="mailto:kunh6414@gmail.com">kunh6414@gmail.com</a></p></div></div>
+        <aside class="resource-citation-column" aria-label="Citation"><div class="resource-citation"><span class="resource-symbol"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 6H4v6h6V6zm10 0h-6v6h6V6zM10 12c0 4-2 6-5 6m15-6c0 4-2 6-5 6"/></svg></span><h3>Citation</h3><p>Official BibTeX will be added with the paper release.</p><span class="coming-soon">Coming soon</span></div></aside>
+      </div>
+    </section>
+  </main>
+  <footer><a class="wordmark" href="#top"><img src="assets/mark.svg?v=20261016-dark-theme" width="24" height="24" alt=""> Looking Ahead<span class="wordmark-dot">.</span></a><p>Modeling Future Evolution in Autoregressive Video Generation</p><a href="#top">Back to top ↑</a></footer>
+  <noscript><p class="noscript-notice">Video controls and section links work without JavaScript. Enable JavaScript to switch scenes and figures.</p></noscript>
+  <dialog id="media-viewer" class="media-viewer" aria-labelledby="media-viewer-title">
+    <header class="media-viewer-toolbar"><h2 id="media-viewer-title">Full-screen view</h2><div class="media-viewer-actions"><div class="media-viewer-zoom"><button type="button" data-media-zoom="out" aria-label="Zoom out">−</button><span class="media-viewer-zoom-value">100%</span><button type="button" data-media-zoom="in" aria-label="Zoom in">+</button><button type="button" data-media-zoom="fit">Fit</button></div><button class="media-viewer-close" type="button" aria-label="Close full-screen view">×</button></div></header>
+    <div class="media-viewer-stage"><div class="media-viewer-content"></div></div>
+  </dialog>
+</body>
+</html>

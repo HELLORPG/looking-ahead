@@ -1,0 +1,17 @@
+.DS_Store
+_site/
+.preview/
+
+# Local caches and internal review records
+__pycache__/
+*.py[cod]
+/tools/selections/
+/assets/provenance.json
+/assets/data/convergence/compute_estimates.json
+
+AGENTS.md
+README.md
+/tools/demo_selector.py
+/tools/demo_selector.html
+/tools/gallery_selector.py
+/tools/gallery_selector.html

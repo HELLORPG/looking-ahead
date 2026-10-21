@@ -1,0 +1,29 @@
+method,step,mean,reported_sample_spread
+TF baseline,5000,25.359,1.329
+TF baseline,7500,25.486,1.675
+TF baseline,10000,26.436,0.695
+TF baseline,12500,27.848,1.157
+TF baseline,15000,25.879,1.632
+TF baseline,17500,27.891,0.925
+TF baseline,20000,27.554,0.798
+Ours,5000,26.978,0.616
+Ours,7500,28.211,0.56
+Ours,10000,30.004,0.954
+Ours,12500,30.351,0.646
+Ours,15000,29.557,1.157
+Ours,17500,30.372,0.757
+Ours,20000,30.89,0.386
+Next Forcing (history),5000,27.285,0.718
+Next Forcing (history),7500,28.132,0.694
+Next Forcing (history),10000,29.153,0.575
+Next Forcing (history),12500,29.457,0.394
+Next Forcing (history),15000,29.105,1.013
+Next Forcing (history),17500,30.07,0.735
+Next Forcing (history),20000,30.733,0.709
+Next Forcing Re (history),5000,27.721,1.175
+Next Forcing Re (history),7500,28.386,1.309
+Next Forcing Re (history),10000,28.893,0.602
+Next Forcing Re (history),12500,29.668,0.813
+Next Forcing Re (history),15000,29.074,0.76
+Next Forcing Re (history),17500,30.501,0.706
+Next Forcing Re (history),20000,30.053,0.833
