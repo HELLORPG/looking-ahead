@@ -606,3 +606,36 @@ function initializeChapterEntries() {
 }
 initializeChapterEntries();
 initializeResultReveals();
+
+function initializeCitationCopy() {
+  const button = document.querySelector('.citation-copy');
+  const citation = document.getElementById('citation-bibtex');
+  const status = document.getElementById('citation-copy-status');
+  if (!button || !citation || !status) return;
+  button.hidden = false;
+  let resetTimer;
+  button.addEventListener('click', async () => {
+    window.clearTimeout(resetTimer);
+    try {
+      await navigator.clipboard.writeText(citation.textContent.trim());
+      button.textContent = 'Copied!';
+      status.textContent = 'BibTeX copied to clipboard.';
+    } catch {
+      const selection = window.getSelection();
+      if (selection) {
+        const range = document.createRange();
+        range.selectNodeContents(citation);
+        citation.focus({ preventScroll: true });
+        selection.removeAllRanges();
+        selection.addRange(range);
+        status.textContent = 'Citation selected. Press Ctrl+C or Command+C to copy.';
+      } else {
+        citation.focus({ preventScroll: true });
+        status.textContent = 'Clipboard unavailable. Select and copy the citation below.';
+      }
+      button.textContent = 'Copy manually';
+    }
+    resetTimer = window.setTimeout(() => { button.textContent = 'Copy BibTeX'; }, 2500);
+  });
+}
+initializeCitationCopy();

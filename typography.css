@@ -137,3 +137,7 @@ sup{font-size:.65em}
  :is(#showcase,.media-viewer-showcase) .showcase-controls input{order:5;flex-basis:100%}
  :is(#showcase,.media-viewer-showcase) .showcase-time{margin-left:auto}
 }
+
+.citation-bibtex{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:var(--text-detail);font-weight:500;line-height:1.75}
+.citation-copy{font-size:var(--text-detail);font-weight:500}
+@media(max-width:600px){.citation-bibtex{font-size:var(--text-caption)}}
